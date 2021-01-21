@@ -1,0 +1,183 @@
+<div *ngIf="Appointment">
+    <br>
+    <div class="row justify-content-md-center" style="background-color:#eeeeee;">
+        <div class="col-sm-10">
+
+            <div id="appointmentConfirmation_Sec" class="appointmentConfirmation_Bg">
+                <br>
+                <h4 class="headerSpec">Appointment Confirmation</h4>
+
+                <hr class="hr_style1">
+
+                <div class="row ">
+
+                    <div class="col-sm-4">
+                        <!-- Patient details -->
+                        <div class="row">
+                            <div class="col-sm-5">
+                                <h4 style="margin-left: 25px;">Patient</h4>
+                                <div class="patient-image img-responsive"></div>
+                            </div>
+
+                            <div class="col-sm-7">
+                                <br>
+                                <br>
+                                <p class="patient_label1">{{Appointment.memberFirstName}}</p>
+                            </div>
+                        </div>
+
+                        <hr class="hr_style2">
+
+                        <div id="appointmentType" class="row reactangle_Spec">
+                            <div class="col-sm-12">
+                                <h4 class="Heading headSize_1"> Type </h4>
+                            </div>
+
+                            <div class="col-sm-12">
+                                <p class="Explain"> Appointment </p>
+                            </div>
+                        </div>
+                        <br>
+
+
+                        <div id="appointmentReason" class="row reactangle_Spec">
+                            <div class="col-sm-12">
+                                <h4 class="Heading headSize_2"> Reason </h4>
+                            </div>
+
+                            <div class="col-sm-12">
+                                <p class="Explain"> {{Appointment.reasons[0].description}} </p>
+                            </div>
+                        </div>
+                        <br>
+
+                        <div id="appointment_prescription" class="row reactangle_Spec">
+                            <div class="col-sm-12">
+                                <h4 class="Heading headSize_3"> Previous Prescription </h4>
+                            </div>
+
+                            <div class="col-sm-12">
+                                <p class="Explain">
+                                    <a style="cursor: pointer" (click)="openPrescription(PrescriptionList)">Click here
+                                        to open</a>
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- patient div end -->
+
+
+                    <div class="col-sm-4 ">
+                        <div class="calender-image img-responsive img-center"></div>
+
+                        <div class="row justify-content-md-center">
+                            <div class="vLine"></div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-sm-4">
+                        <!-- Doctor details -->
+                        <div class="row">
+                            <div class="col-sm-5">
+                                <h4 style="margin-left: 35px;">PCP</h4>
+                                <div class="doctor-image img-responsive"></div>
+                            </div>
+
+                            <div class="col-sm-7">
+                                <br>
+                                <br>
+                                <p class="doctor_label1 float-left"> {{Appointment.providerFirstName}}</p>
+                            </div>
+                        </div>
+
+                        <hr class="hr_style3">
+
+                        <div id="appointmentType" class="row reactangle_Spec  left_align_1">
+                            <div class="col-sm-12">
+                                <h4 class="Heading headSize_1"> Time </h4>
+                            </div>
+
+                            <div class="col-sm-12">
+                                <p class="Explain timedetails_spec"> {{Appointment.startTime|date: 'dd/MM/yyyy'}} </p>
+                            </div>
+                        </div>
+                        <br>
+
+
+                        <div id="appointmentReason" class="row reactangle_Spec  left_align_1">
+                            <div class="col-sm-12">
+                                <h4 class="Heading headSize_2"> Status </h4>
+                            </div>
+
+                            <div class="col-sm-12">
+                                <p class="Explain approval_spec"> {{Appointment.appointment_Status}} </p>
+                            </div>
+                        </div>
+                        <br>
+
+                        <div id="appointment_prescription" class="row reactangle_Spec  left_align_1">
+                            <div class="col-sm-12">
+                                <h4 class="Heading headSize_2"> Enquiry </h4>
+                            </div>
+
+                            <div class="col-sm-12">
+                                <p class="Explain status_spec"> 12 / 15 Completed </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Doctor details div end -->
+
+                </div>
+
+                <br>
+                <br>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="row justify-content-md-center">
+                            <button type="button" class="btn btn-primary btn-specs" routerLink="/appointmentlist">Go
+                                Back To Appointments</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-template #PrescriptionList let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Prescription List</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <div *ngIf="Appointment.prescriptions.length > 0">
+            <div class="lastcardtop" *ngFor="let prescription of Appointment.prescriptions">
+                <div style="border-bottom: 1px solid">
+                    <label class="cardlabelcss"> {{prescription.category}}</label>
+
+                </div>
+                <div style="border-bottom: 1px solid">
+                    <label class="cardlabelcss">Refer</label>
+                    <label class="doctordiscription">{{prescription.createdBy}}</label>
+                </div>
+                <div style="border-bottom: 1px solid">
+                    <label class="cardlabelcss">Date & Time</label>
+                    <label class="doctordiscription">{{prescription.createdDate | date}}</label>
+                </div>
+                <div>
+                    <label class="cardlabelcss">Medicines</label>
+                    <label class="doctordiscription"
+                        *ngFor="let medicine of prescription.medicines">{{medicine.medicineName}}
+                        <br><br><br></label>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="Appointment.prescriptions.length == 0">
+            <h2>No Prescriptions found</h2>
+        </div>
+    </div>
+</ng-template>

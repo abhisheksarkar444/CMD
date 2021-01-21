@@ -1,0 +1,28 @@
+<div class="container">
+
+    <hr style="border: 1px solid #035b7e;">
+    <br>
+
+    <div class="row justify-content-md-center">
+        <form>
+            <div>
+                <h2>{{choose}}</h2>
+            </div>
+
+            <select (ngModelChange)="onChange($event)" class="form-control" [ngModel]="UserList"
+                [ngModelOptions]="{standalone: true}">
+                <option *ngFor="let user of UserList" [ngValue]="user">{{user.firstName}}</option>
+            </select>
+        </form>
+    </div>
+
+    <br>
+    <br>
+
+    <div class="row">
+        <div class="col text-center">
+            <button [attr.disabled]="proceed == false ? true : null" class="btn btn-success confirmBtn_specs"
+                (click)="parent.step1_show = false; parent.step2_show = true;">Next</button>
+        </div>
+    </div>
+</div>

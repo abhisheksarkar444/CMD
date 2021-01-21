@@ -1,0 +1,51 @@
+.first-row {
+  border-bottom: 1px solid lightgrey;
+  margin-bottom: 20px;
+  padding: 10px 0 10px 0;
+}
+
+.box-shadow {
+  box-shadow: 0px 5px 10px -5px rgba(0, 0, 0, 0.5);
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.dark-navy-color {
+  color: #18385c;
+}
+
+.roboto-font {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.actions-and-info-panel {
+  background-color: white;
+  padding: 20px 20px 0 20px;
+}
+
+.tabs {
+  background-color: white;
+}
+
+::ng-deep .mat-tab-label {
+  color: #006fc4;
+  font-size: 16px;
+}
+
+::ng-deep .mat-tab-label-active {
+  font-weight: bold;
+}
+
+.tab-body-color {
+  background-color: #eeeff0;
+}
+
+.width100 {
+  width: 100%;
+}
+
+.prescription-padding {
+  padding: 25px 100px;
+}

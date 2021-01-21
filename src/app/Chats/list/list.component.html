@@ -1,0 +1,48 @@
+<mat-card class='card'>
+
+  <div>
+    <div class='container'>
+      <h2>Give Feedback</h2>
+      <p>How was your overall Experience with Doctor</p>
+      <div class="panel panel-primary">
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+              <tr>
+
+                <p id="rcorners2">
+                  <a [ngClass]="{'Emojis' : emoji=='happy'}" (click)="onEmojis('happy')">😃</a>
+                  <a [ngClass]="{'Emojis' : emoji=='good'}" (click)="onEmojis('good')">🙂</a>
+                  <a [ngClass]="{'Emojis' : emoji=='OKay'}" (click)="onEmojis('OKay')">😏</a>
+                  <a [ngClass]="{'Emojis' : emoji=='notgood'}" (click)="onEmojis('notgood')">🙁</a>
+                  <a [ngClass]="{'Emojis' : emoji=='Worst'}" (click)="onEmojis('Worst')">😡</a>
+                </p>
+
+                <!-- {{emoji}} -->
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of items">
+                <p id="rcorners2">
+                  {{item.Questions}}
+                  <td>
+
+                    <kkd-rating [rating]='item.rating' [itemId]='item.id' (ratingClick)='ratingComponentClick($event)'>
+                    </kkd-rating>
+                  </td>
+                </p>
+              </tr>
+            </tbody>
+            <br>
+            <div>
+              <textarea type="textarea" id="rcorners1" name="description" [(ngModel)]="description" rows="10"
+                cols="30"></textarea>
+              <br>
+              <input type="submit" (click)="OnSubmit()" routerLink="/dashboard" class="btn btn-primary">
+            </div>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</mat-card>

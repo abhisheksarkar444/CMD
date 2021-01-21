@@ -1,0 +1,65 @@
+<div fxLayout fxLayoutAlign="end">
+  <div fxLayout>
+
+    <div fxFlex="100%">
+      <mat-card>
+        <a href="javascript:void(0)">
+          <i class="material-icons fa-clickable" fxLayout fxLayoutAlign="end" style="margin-bottom: 20px;
+                margin-left: 10px;" data-toggle="modal" data-target="#myModal">
+            <button mat-raised-button>New Category</button>
+          </i>
+        </a>
+
+        <!-- display categories from database -->
+        <div fxLayout style="overflow: auto;">
+          <div style="border-right:1px solid lightgrey;" *ngFor="let category of categorySet;">
+            <div style="padding: 10px 0px;min-width: 300px;">
+              <kkd-category [category]="category" (question)="addQuestion($event)"></kkd-category>
+
+            </div>
+            <!-- display questions on screen before saving in the database -->
+            <div *ngFor="let question of questionArray">
+              <div fxLayout="column" style="padding-top: 10px;max-height: 400px;overflow: auto;"
+                *ngIf="question.categoryID==category.id">
+                <mat-card>
+                  {{question.questionText}}
+                </mat-card>
+              </div>
+            </div>
+          </div>
+        </div>
+      </mat-card>
+    </div>
+  </div>
+
+  <!-- on clicking save button all the unsaved questions on the screen should go to the database -->
+
+</div>
+<button class="btn btn-primary" (click)="SaveUnsavedQuestionsToDB(questionArray)">
+  Save
+</button>
+
+
+<!-- add category modal- pop up  -->
+<div>
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog" style="overflow-y: initial">
+      <div class="modal-content">
+        <div class="modal-header" style="background-color: blue">
+          <h4 class="modal-title" style="color:#f7f5f5">Enter New Category</h4>
+        </div>
+
+        <!-- pop up form to add the new category -->
+        <form [formGroup]="categoryForm">
+          <div style="max-height:200px;overflow-y:auto">
+            <input type="text" style="margin-top: 20px; margin-left: 20px;  " formControlName="newCategoryName">
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary" data-dismiss="modal" (click)="SaveCategory()">Submit</button>
+            <button type="reset" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

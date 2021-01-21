@@ -1,0 +1,27 @@
+.container {
+    padding: 0.5rem;
+}
+
+.row {
+    padding-left: 0.4rem;
+    padding-right: 1rem;
+}
+
+input {
+    margin-right: 1rem;
+    border-top: inherit;
+    border-left: inherit;
+    border-right: inherit;
+    border-radius: 0;
+    overflow: hidden;
+}
+
+.days {
+    float: right;
+}
+
+.form-inline .form-control {
+    display: inline-block;
+    width: 45px;
+    vertical-align: middle;
+}

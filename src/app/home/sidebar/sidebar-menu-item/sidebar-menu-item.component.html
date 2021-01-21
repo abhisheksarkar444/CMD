@@ -1,0 +1,4 @@
+<div class="list-item" [routerLink]="item.routerLink" routerLinkActive="active">
+  <i class="icon" [ngClass]="item.icon"></i>
+  <div *ngIf="isExpanded" class="text nowrap">{{ item.title }}</div>
+</div>

@@ -1,0 +1,11 @@
+<a [routerLink]="request.redirect"><button mat-raised-button class="request-button">
+    <div fxLayout="column">
+      <div fxFlex class="request-button-icon">
+        <i class="icon" [ngClass]="request.icon"></i>
+      </div>
+      <div fxFlex class="request-button-title">
+        <h6>{{ request.text }}</h6>
+      </div>
+    </div>
+  </button>
+</a>

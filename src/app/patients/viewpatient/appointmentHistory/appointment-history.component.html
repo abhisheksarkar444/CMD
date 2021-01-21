@@ -1,0 +1,36 @@
+<div *ngIf="app?.length;else NoDataFound">
+
+  <div *ngFor="let pat of app">
+    <button (click)="selectAppointment(pat.appointmentID)">
+
+      <!--End-->
+      <div id="example1">
+
+        <div class="circle">p </div>
+        <img style="height: 20px;margin-left: 10px;" src="assets/images/medicaltool.png">
+        <div class="labeltext">
+          <label>Dr. {{pat.providerFirstName}}</label>
+        </div>
+
+        <div class="div_text">
+          <mat-icon>access_time</mat-icon>
+        </div>
+        <div>
+          <label style="font-size: 15px;
+              margin-top: -30px;
+              font-weight: bold;">{{pat.startTime | date:'hh:mm'}}
+          </label>
+        </div>
+      </div>
+      <div style="margin-top: -80px;">
+        <label class="artigo_nome">
+          <img style="height: 20px;margin-left: 10px;" src="assets/images/pad.png">
+          Patient encountered chest pain Morning during jogging for an hour
+        </label>
+      </div>
+    </button>
+  </div>
+</div>
+<ng-template #NoDataFound>
+  <p style="text-align: center;color:rosybrown;font-size:18px">Result Not Found</p>
+</ng-template>

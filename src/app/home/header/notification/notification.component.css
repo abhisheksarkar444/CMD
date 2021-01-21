@@ -1,0 +1,52 @@
+.pointer {
+  cursor: pointer;
+}
+
+.notification-title {
+  padding: 10px;
+  font-size: 20px;
+}
+
+.notifications-container {
+  max-height: 300px;
+  overflow: auto;
+  padding-right: 10px;
+}
+
+.notification-container {
+  position: relative;
+  border-top: 1px solid lightgrey;
+  padding: 10px 15px;
+}
+
+.notification-time {
+  color: grey;
+  font-size: 12px;
+}
+
+.view-all-notification {
+  padding-top: 10px;
+  border-top: 1px solid lightgrey;
+}
+
+.notification-image {
+  padding: 5px 10px 5px 0;
+}
+
+.notification-image img {
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+}
+
+.attention-required {
+  background-color: red;
+  position: absolute;
+  color: white;
+  padding: 0px 5px;
+  border-radius: 5px 5px 0 0;
+  font-size: 25px;
+  top: -2px;
+  right: 0;
+  transform: rotate(180deg);
+}

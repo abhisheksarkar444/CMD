@@ -1,0 +1,39 @@
+<div class="container">
+    <form [formGroup]="time">
+        <div class="row wrap">
+
+            <div class="row">
+                <div class="col-sm-3" style="color:rgb(209, 179, 179)">From:</div>
+                <div class="col-sm-2"> <input type="time" placeholder="From" maxlength=10 id="from"
+                        formControlName="from">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-3" style="color:rgb(209, 179, 179)">To:</div>
+                <div class="col-sm-2"> <input type="time" id="to" placeholder="To" maxlength=10 formControlName="to">
+                </div>
+            </div>
+            <div class="col-xsm-1">
+                <input type="number" id="duration" placeholder="Duration" formControlName="appDuration">
+            </div>
+
+            <div class="col-sm-2">
+                <app-dayselection (changed)="onChanged($event)"></app-dayselection>
+            </div>
+            <div>&nbsp;&nbsp;</div>&nbsp;&nbsp;
+            &nbsp;&nbsp;
+            <div>&nbsp;&nbsp;</div>&nbsp;&nbsp;
+            &nbsp;&nbsp;
+            <div class="col-sm-1">
+                <button type="submit" class="btn btn-dark days" (click)="addAvailability()">Add</button>
+            </div>
+        </div>
+    </form>
+    <br>
+    <br>
+</div>
+<div class="container">
+    <app-slot *ngIf="availabilities.length>0;" [availabilities]="availabilities" [displayedColumns]="displayedColumns"
+        [timeslots]="timeslots" [totSlots]="totSlots" [timewasted]="timewasted">
+    </app-slot>
+</div>

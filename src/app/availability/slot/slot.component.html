@@ -1,0 +1,27 @@
+<div>
+    <mat-accordion displayMode="flat" multi class="mat-table">
+        <section class="mat-elevation-z2 mat-header-row">
+            <span class="mat-header-cell">Day</span>
+            <span class="mat-header-cell">From</span>
+            <span class="mat-header-cell">To</span>
+            <span class="mat-header-cell">App Duration</span>
+            <span class="mat-header-cell">Total Slots</span>
+            <span class="mat-header-cell">RemainingTime</span>
+        </section>
+
+        <mat-expansion-panel *ngFor="let item of availabilities; let i=index;">
+            <mat-expansion-panel-header class="mat-row">
+                <span class="mat-cell">{{item.dayOfWeek}}</span>
+                <span class="mat-cell">{{item.startTime}}</span>
+                <span class="mat-cell">{{item.endTime}}</span>
+                <span class="mat-cell">{{item.slotInterval_Minutes}}</span>
+                <span class="mat-cell">{{totSlots[i]}}</span>
+                <span class="mat-cell">{{timewasted[i]}}</span>
+            </mat-expansion-panel-header>
+            <div>
+                <pre><span *ngFor="let slot of timeslots[i]" class="btn bg-navy" style="background-color: #209a87;margin-right: 8px;margin-bottom: 3px;margin-top: 2px;font-size: smaller;color: whitesmoke">{{ slot }}</span></pre>
+            </div>
+        </mat-expansion-panel>
+    </mat-accordion>
+
+</div>

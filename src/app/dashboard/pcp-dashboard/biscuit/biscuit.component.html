@@ -1,0 +1,20 @@
+<mat-card>
+  <div fxLayout>
+    <div class="dark-navy-color" fxFlex="75%">
+      <h6>{{ biscuit.title }}</h6>
+    </div>
+  </div>
+
+  <mat-card-content>
+    <div fxLayout="row wrap">
+      <div fxFlex="50%">
+        <kkd-ngx-bar-chart [barChartData]="biscuit.barChartData"></kkd-ngx-bar-chart>
+      </div>
+      <div fxFlex="50%" fxLayout fxLayoutAlign="end">
+        <div style="font-size: 40px;" class="bold">{{ biscuit.todaysCount }}</div>
+        <div fxLayout="column" fxLayoutAlign="center"
+          style="font-size: 20px; color: grey;padding-top: 10px;padding-left: 10px;"></div>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>

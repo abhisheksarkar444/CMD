@@ -1,0 +1,78 @@
+<div *ngIf="isComp">
+    <div class="row schedulesPatientlist_reactangle" *ngFor="let appointment of compapp; let i=index;">
+        <div class="row schedulesPatientList">
+
+            <div class="col-sm-2 text-center">
+                <div class="circle" *ngIf="appointment['providerFirstName']"> {{appointment["providerFirstName"][0]}}
+                </div>
+            </div>
+
+            <div class="col-sm-3">
+                <i class="material-icons schedulesPatientIcon"> account_box </i>
+
+                <div>
+                    <div class="schedulesPatientName">{{appointment["providerFirstName"]}} </div>
+                </div>
+
+            </div>
+
+            <div class="col-sm-7">
+                <div class="icon ion-md-calendar schedulesPatientCalender"></div>&nbsp;
+                &nbsp;
+                <div class="schedulesPatientTime">{{appointment["startTime"]|split}}</div>
+            </div>
+            <br>
+            <br><br>
+            <div class="icon ion-md-clipboard schedulesPatientclipboard"></div> &nbsp;
+            <div *ngFor="let reason of reasontemp[i];">
+                <div class="schedulesPatientProblem_details">{{reason}}
+                </div>
+            </div>
+        </div>
+        <!-- schedulesPatientList div end -->
+        <div style="min-height:25px;"></div>
+    </div>
+    <!-- schedulesPatientlist_reactangle div end -->
+    <br>
+</div>
+
+<div *ngIf="isComp==0">
+    <div class="row schedulesPatientlist_reactangle" *ngFor="let appointment of pendapp; let i=index;">
+
+
+
+        <div class="row schedulesPatientList">
+
+            <div class="col-sm-2 text-center">
+                <div class="circle" *ngIf="appointment['providerFirstName']"> {{appointment["providerFirstName"][0]}}
+                </div>
+            </div>
+
+            <div class="col-sm-3">
+                <i class="material-icons schedulesPatientIcon"> account_box </i>
+
+                <div>
+                    <div class="schedulesPatientName">{{appointment["providerFirstName"]}} </div>
+                </div>
+
+            </div>
+
+            <div class="col-sm-7">
+                <div class="icon ion-md-calendar schedulesPatientCalender"></div>&nbsp;
+                &nbsp;
+                <div class="schedulesPatientTime">{{appointment["startTime"]|split}}</div>
+            </div>
+            <br>
+            <br><br>
+            <div class="icon ion-md-clipboard schedulesPatientclipboard"></div> &nbsp;
+            <div *ngFor="let reason of reasontemp[i];">
+                <div class="schedulesPatientProblem_details">{{reason}}
+                </div>
+            </div>
+        </div>
+        <!-- schedulesPatientList div end -->
+        <div style="min-height:25px;"></div>
+    </div>
+    <!-- schedulesPatientlist_reactangle div end -->
+    <br>
+</div>

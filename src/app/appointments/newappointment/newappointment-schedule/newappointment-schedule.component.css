@@ -1,0 +1,29 @@
+.vertical_Scroll {  
+    height:200px;    
+    overflow-y: scroll;  
+    overflow-x: hidden;  
+}
+
+/*------ Scroll styles -------*/
+/* width */
+::-webkit-scrollbar {
+  width: 10px;  
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #e7e7e7; 
+  border-radius: 15px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888; 
+  border-radius: 15px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+
+}

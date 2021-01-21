@@ -1,0 +1,36 @@
+<mat-card>
+  <div fxLayout>
+    <div fxFlex>
+      <img [src]="detail.patientImage" alt="" class="pcp-image">
+    </div>
+    <div fxFlex fxLayout="column" class="pcp-info">
+      <div fxFlex>
+        <h6 class="bold dark-navy-color">{{ title }}</h6>
+      </div>
+      <div fxFlex>
+        <h3 style="white-space: nowrap;" class="bold dark-navy-color">{{ detail.providerFirstName }}
+          {{detail.providerLastName}}</h3>
+      </div>
+      <div *ngIf="status else load">
+        <kkd-communication></kkd-communication>
+      </div>
+      <ng-template #load>
+        <div fxLayout fxLayoutAlign="space-between" class="appointment-status-action" *ngIf="!isLoading else loading">
+          <button (click)="Cancel()" mat-button><i class="icon ion-md-close-circle"></i></button>
+        </div>
+        <ng-template #loading>
+          <div class="throbber">
+            <div fxLayout="column" fxLayoutAlign="center" style="height: 100%;">
+              <div fxLayout fxLayoutAlign="center">
+                <div class="lds-ripple">
+                  <div></div>
+                  <div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </ng-template>
+      </ng-template>
+    </div>
+  </div>
+</mat-card>

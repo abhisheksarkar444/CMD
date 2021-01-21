@@ -1,0 +1,88 @@
+<!-- FIRST ROW -->
+<div fxLayout>
+
+  <!-- TITLE -->
+  <div fxFlex="40%">
+    <h2 class="bold dark-navy-color roboto-font">Appointments</h2>
+  </div>
+
+  <!-- LOCATION DROPDOWN -->
+  <div fxFlex="20%">
+    <mat-form-field>
+      <mat-select [(value)]="selectedLocation">
+        <mat-select-trigger>
+          <i class="icon ion-md-pin"></i>&nbsp;
+          {{ convertIdToName(locations, "locationId", selectedLocation, "locationName") }}
+        </mat-select-trigger>
+        <mat-option *ngFor="let location of locations" [value]="location.locationId">
+          {{ location.locationName }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <!-- PHYSICIAN DROPDOWN -->
+  <div fxFlex="20%">
+    <mat-form-field>
+      <mat-select [(value)]="selectedPhysician">
+        <mat-select-trigger>
+          <i class="icon ion-md-git-network"></i>&nbsp;
+          {{ convertIdToName(physicians, "physicianId", selectedPhysician, "physicianName") }}
+        </mat-select-trigger>
+        <mat-option *ngFor="let physician of physicians" [value]="physician.physicianId">
+          {{ physician.physicianName }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <!-- NEW APPOINTMENT -->
+  <div fxFlex="20%" fxLayout="column" fxLayoutAlign="center">
+    <table class="new-appointment">
+      <tr>
+        <td style="width: 10px;padding-bottom: 5px;">•</td>
+        <td class="italic roboto-font pointer">
+          <a routerLink="/newAppointments">
+            New Appointment
+          </a>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+<!-- SECOND ROW -->
+<div fxLayout="row wrap" fxLayoutGap="25px grid">
+  <kkd-biscuit *ngFor="let biscuit of biscuits" [biscuit]="biscuit" fxFlex="1 1 25%" fxFlex.md="1 1 33.33%"
+    fxFlex.sm="1 1 50%" fxFlex.xs="1 1 100%">
+  </kkd-biscuit>
+</div>
+
+<!-- THIRD ROW -->
+<div fxLayout fxLayoutAlign="flex-end" class="third-row">
+  <div class="button-group">
+    <button mat-raised-button (click)="getAppointmentsByDate(-1)" [color]="prev">Previous</button>
+    <button mat-raised-button (click)="getAppointmentsByDate(0)" [color]="today">Today</button>
+    <button mat-raised-button (click)="getAppointmentsByDate(1)" [color]="next">Upcoming</button>
+  </div>
+</div>
+
+<!-- FOURTH ROW -->
+<div fxLayout="row wrap" fxLayoutGap="25px grid">
+  <kkd-appointment-card [num]="num" (valueChange)="deleteObject($event)" *ngFor="
+      let detail of dateAppointment
+        | paginate
+          : {
+              id: 'listing_pagination',
+              itemsPerPage: 8,
+              currentPage: page,
+              totalItems: totalRec
+            }
+    " fxFlex="25%" fxFlex.md="33.33%" fxFlex.sm="50%" fxFlex.xs="100%" [detail]="detail"></kkd-appointment-card>
+</div>
+
+<!-- PAGINATION -->
+<div fxLayout fxLayoutAlign="flex-end">
+  <pagination-controls id="listing_pagination" maxSize="5" directionLinks="true" (pageChange)="page = $event">
+  </pagination-controls>
+</div>

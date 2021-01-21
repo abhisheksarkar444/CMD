@@ -1,0 +1,11 @@
+<div>
+  <mat-tab-group mat-align-tabs="start" class="Tabs">
+    <mat-tab class="lebel" label="Prescription">
+      <kkd-latest-prescription [patientUniqueKey]="patientUniqueKey"></kkd-latest-prescription>
+    </mat-tab>
+    <mat-tab label="History">
+      <kkd-previous-prescription [patientUniqueKey]="patientUniqueKey"></kkd-previous-prescription>
+    </mat-tab>
+  </mat-tab-group>
+  <router-outlet></router-outlet>
+</div>

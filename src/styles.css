@@ -1,0 +1,42 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+@import url("https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css");
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,700|Material+Icons");
+
+@font-face {
+  font-family: 'open-sans';
+  src: url("./assets/fonts/OpenSans-Semibold.ttf");
+}
+
+:focus,
+button:focus {
+  outline: none !important;
+}
+
+/* SCROLLBAR CSS */
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #2e4763;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #18385c;
+}
+
+.cdk-overlay-container {
+  z-index: 3000 !important;
+ }

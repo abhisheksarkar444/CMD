@@ -1,0 +1,32 @@
+<div class="col-lg-12">
+    <mat-card class="example-full-width" style="width: 500px;">
+
+        <div class="heading">
+            Prescriptions
+        </div>
+        <div class="row sub-head"></div>
+        <div class=container>
+            <mat-list class="custom-scroll-bar">
+                <mat-list-item *ngFor="let med of newMedList; let i = index">
+                    <div matLine class="tile">{{i+1}}. {{med.medicineName}} </div>
+                    <div *ngIf="med.isAfterFood">
+                        <div class="af">AF</div>
+                    </div>
+                    <div *ngIf="!med.isAfterFood">
+                        <div class="af">BF</div>
+                    </div>
+                    <div class="prescribe">
+                        {{SetImagePath(med.medicineCycleOption)}}
+                        <img src={{imgPath}}>
+                    </div>
+                    <p matLine>
+                        <span> {{med.medicineDescription}} </span>
+                    </p>
+                    <div class="col-md-2 offset.col-md-2">
+                        <button type="button" class="btn btn-danger" (click)="Cancel(med.medicineName)">X</button>
+                    </div>
+                </mat-list-item>
+            </mat-list>
+        </div>
+    </mat-card>
+</div>

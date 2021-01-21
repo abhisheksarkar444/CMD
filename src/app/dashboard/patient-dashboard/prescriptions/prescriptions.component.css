@@ -1,0 +1,59 @@
+.prescription-container {
+  background-color: white;
+  border: 1px solid grey;
+  border-radius: 5px;
+}
+
+.horizontal-separator {
+  border-bottom: 1px solid grey;
+}
+
+.vertical-separator {
+  border-right: 1px solid grey;
+}
+
+.prescription-list {
+  padding: 10px 20px;
+}
+
+.activePrescriptionList {
+  border-left: 5px solid #00616d;
+}
+
+.activePrescriptionList .list-title {
+  font-weight: bold;
+}
+
+.list-item {
+  padding: 10px 0 10px 10px;
+  border-bottom: 1px solid lightgrey;
+}
+.list-object {
+  padding:10px;
+  border-bottom: 1px solid lightgrey;
+}
+.list-object-selected {
+  padding:10px;
+  border-bottom: grey solid;
+}
+.list-name {
+  color: grey;
+  font-size: 14px;
+}
+
+.calendar-icon i {
+  font-size: 30px;
+  color: #00616d;
+}
+
+.list-date {
+  color: grey
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.dark-navy-color {
+  color: #18385c;
+}

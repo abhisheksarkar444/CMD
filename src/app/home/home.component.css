@@ -1,0 +1,22 @@
+.expanded {
+  width: 300px;
+}
+
+.layout {
+  height: 100%;
+}
+
+.header-and-main-content {
+  position: relative;
+  overflow: hidden;
+  width: calc(100% - 230px);
+}
+
+.main-content {
+  padding: 20px;
+  background-color: rgb(238, 239, 240);
+  margin-top: 60px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: calc(100% - 60px);
+}

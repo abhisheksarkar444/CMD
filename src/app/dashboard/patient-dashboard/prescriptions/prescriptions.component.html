@@ -1,0 +1,68 @@
+<div class="prescription-container">
+
+  <!-- PRESCRIPTION LIST -->
+  <div fxFlex class="prescription-list">
+
+    <!-- HEADER -->
+    <div fxLayout fxLayoutAlign="space-between">
+      <h4 class="dark-navy-color bold">Prescription</h4>
+      <mat-form-field>
+        <mat-select [value]="2017" placeholder="Sort by year">
+          <mat-option [value]="2017">2017</mat-option>
+          <mat-option [value]="2018">2018</mat-option>
+          <mat-option [value]="2019">2019</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="horizontal-separator"></div>
+
+    <!-- LIST -->
+    <div *ngFor="let item of listItems;" [ngClass]="{'activePrescriptionList' : item.active==true}" class="list-item">
+      <div fxLayout (click)="prescriptionInitialize(item)">
+        <div fxLayout="column" fxFlex="60%">
+          <h4 class="list-title"> {{ item.title }}</h4>
+          <div class="list-name">Dr. {{ item.name }}</div>
+        </div>
+        <div fxFlex="20%" class="calendar-icon">
+          <i class="icon ion-md-calendar"></i>
+        </div>
+        <div class="list-date" fxFlex="20%" fxLayout="column" fxLayoutAlign="center">
+          {{ item.createdDate | date: 'dd/MM/yyyy'}}
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="vertical-separator"></div>
+
+  <!-- PRESCRIPTION DETAIL -->
+
+  <div fxFlex class="prescription-list">
+
+    <!-- HEADER -->
+    <h4 class="dark-navy-color bold">Prescription Details</h4>
+
+    <div class="horizontal-separator"></div>
+
+    <!-- LIST DETAILS -->
+    <div fxLayout fxLayout="column">
+      <div class="list-object" *ngIf="prescription.name!==null">
+        <h5 class="list-title"> Refer </h5>
+        <div class="list-name">Dr. {{ prescription.name}}</div>
+      </div>
+      <div class="list-object" *ngIf="prescription.createdDate!==null">
+        <h5 class="list-title"> Date & Time </h5>
+        <div class="list-name">{{ prescription.createdDate | date:'dd/MM/yyyy h:mm'}}</div>
+      </div>
+      <div class="list-object" *ngIf="prescription.medicines.length!==0">
+        <h5 class="list-title"> Medicines </h5>
+        <div class="list-name" *ngFor="let item of prescription.medicines">{{ item.medicineName }} -> {{
+          item.medicineCycle}}</div>
+      </div>
+
+    </div>
+  </div>
+
+</div>

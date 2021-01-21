@@ -1,0 +1,33 @@
+<div class="container">
+
+  <form [formGroup]='categoryForm' (ngSubmit)='addCategory()'>
+    <div class="form-group">
+      <label>Enter the category Name: </label> <br>
+      <input type="text" formControlName="categoryname">
+    </div>
+
+    <br>
+    <button class="btn btn-success" value="Add" (click)="OnClickopenForm()">Add</button> &nbsp; &nbsp;
+  </form>
+</div>
+
+
+
+<div style="text-align:center" class="jumbotron" *ngIf="openform">
+
+
+  <div class="card-columns">
+
+    <ul>
+      <li *ngFor="let name of categoryNames" class="card" style="width: 20rem;">
+        <button type="button">
+          <span class="glyphicon glyphicon-plus">+</span>
+        </button>
+
+        <p><b>{{ name }}</b></p>
+      </li>
+    </ul>
+
+  </div>
+
+</div>

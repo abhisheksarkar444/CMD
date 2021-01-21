@@ -1,0 +1,117 @@
+<!---outer Card -->
+<div *ngIf="!uuidpatient">
+  <h3>
+    <p style="text-align: center;color:red">Sorry, Try After Some Time 😟😟</p>
+  </h3>
+</div>
+<div *ngIf="uuidpatient">
+  <mat-card class="outer-card">
+    <mat-card class="Inercard-One">
+      <button mat-button routerLink='/ViewAllPatients'>
+        <mat-icon>arrow_back</mat-icon>
+      </button><br>
+      <img class="Image-css" src={{jsonpatientt.profilePhoto_Path}}>
+      <div class="PatientNamesCss">
+        <label class="FirstNameCss">{{MemberObj.firstName + " " + MemberObj.lastName}}</label><br>
+        <label class="TelPhoneCss">
+          <b style="font-size: 12px; color:red">SubscriberId: </b>
+          {{insuredPersonObj.subscriberID}}
+        </label>
+
+        <br>
+        <!--top card Icons-->
+        <div class="topiconscontainer">
+          <div class="divoutericon">
+            <a routerLink="/chats">
+              <mat-icon class="iconcss">insert_comment</mat-icon>
+            </a>
+          </div>
+          <div class="divoutericon">
+            <mat-icon class="iconcss">call</mat-icon>
+          </div>
+          <div>
+            <mat-icon class="vediocallCss">video_call</mat-icon>
+          </div>
+        </div>
+        <!-- Book New -->
+        <a style="text-decoration: none" routerLink="/newAppointments">
+          <div class="column-layout">
+
+            <div class="card" [routerLink]="['/newAppointments']" routerLinkActive="router-link-active"
+              style=" background-color: white; margin-left: -160px;  top: 16px; color: transparent">
+              <br>
+              <mat-icon style="zoom:1.8;color:#2b90ff ;margin-left:16px; ">alarm_add</mat-icon>
+              <p style="margin-top: -3px;color:#344f70;">Book New</p>
+            </div>
+          </div>
+        </a>
+
+        <!--top card corners data-->
+        <div class="column-layout">
+          <div class="main-column">
+            <label class="labelheading">Patient Information</label><br>
+            <label class="labeldata">DOB : {{MemberObj.dateOfBirth | date}}</label>
+            <label style="margin-left: 20px;" class="labeldata"></label><br>
+          </div>
+          <div class="sidebar-one">
+            <label class="labelheading">Insurance Company</label><br>
+            <label class="labeldata"> {{insuredPersonObj.lastName}} </label>
+          </div>
+          <div class="sidebar-two">
+            <label class="labelheading">Plan Name Activated</label><br>
+            <label class="labeldata"> {{insuredPersonObj.lastName}} </label>
+          </div>
+          <div class="sidebar-Three">
+            <label class="labelheading">Plan Effective Date </label><br>
+            <label class="labeldata"> {{insuredPersonObj.planEffectiveDate | date}} </label>
+
+          </div>
+        </div>
+        <br><br>
+        <!--End-->
+        <mat-tab-group mat-align-tabs="start" class="Tabs" style="margin-left: -100px;">
+          <mat-tab class="footerlavel" label="AppointmentCons...">
+
+            <!--Middle level card in bottom layout-->
+            <div *ngIf="jsonpatientt" class="flex-container">
+
+              <div class="containerInternalLastDivs">
+                <label class="FirstCardLabel1">Symptoms History </label>
+
+                <kkd-symptoms [ApID]="ApID" [jsonpatientt]="jsonpatientt"></kkd-symptoms>
+
+              </div>
+
+              <div class="containerInternalDivs">
+                <label class="FirstCardLabel1">Appointment History </label>
+
+                <kkd-appointment-history [ApID]="ApID" [jsonpatientt]="jsonpatientt"
+                  (ApIDChange)="onAppSelected($event)">
+                </kkd-appointment-history>
+
+              </div>
+
+              <div class="containerInternalLastDivs">
+                <label class="FirstCardLabel1">Prescription History </label>
+
+                <kkd-prescription [ApID]="ApID" [jsonpatientt]="jsonpatientt"></kkd-prescription>
+
+              </div>
+            </div>
+
+          </mat-tab>
+          <mat-tab></mat-tab>
+          <mat-tab class="lebel2" label="Prescription Log">
+
+            <kkd-prescription-log [patientUniqueKey]="jsonpatientt.patientUniqueKey"></kkd-prescription-log>
+
+          </mat-tab>
+          <mat-tab></mat-tab>
+          <mat-tab></mat-tab>
+        </mat-tab-group>
+
+      </div>
+    </mat-card>
+  </mat-card>
+
+</div>

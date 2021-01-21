@@ -1,0 +1,14 @@
+<mat-form-field>
+
+    <span matPrefix style="margin-right: 30px; margin-top:10px;">
+        <img src="assets/images/stethoscope_2.png" class="img-responsive" alt="Responsive image" width="20"
+            height="20" />
+    </span>
+
+
+    <mat-select placeholder="Select Doctor">
+        <mat-option *ngFor="let doctorLists of listof_doctors" value="doctorLists.value">
+            {{doctorLists.viewValue}}
+        </mat-option>
+    </mat-select>
+</mat-form-field>

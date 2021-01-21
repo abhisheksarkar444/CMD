@@ -1,0 +1,80 @@
+.af{
+    background-color: blue;
+    padding:5px;
+    border-radius:30%;
+    color:white;
+ }
+ .dotsandlines {
+    display: table;
+    width: 90%;
+    margin-left: 4%;
+ }
+ .circle-contain, .line {
+    display: table-cell;
+ }
+ .circle-contain {
+    width: 1px;
+    cursor: pointer;
+ }
+ .circle {
+    width: 20px;
+    height: 10px;
+    text-align: center;
+    border-radius: 50%;
+    position: relative;
+    top: 32.5px;
+    border:1px solid #0af;
+    color: #0af;
+    padding: 16px 6px 5px 5px;
+    font-size: 25px;
+    font-weight: bold;
+ }
+ .line {
+    border-bottom: 4px solid #e4e4e4;
+ }
+ .line.current {
+    border-bottom: 4px solid #0af;
+ }
+ .circle.current {
+    background: #0af;
+    color: white;
+ }
+ .heading
+ {
+    text-align: center;
+    font-family: Source Sans Pro;
+    font-size: 28px;
+    color: #3B86FF;
+    border-bottom: 1.5px solid #18385C;
+ }
+ .sub-head
+ {
+    border-bottom: 1px solid #ece2e2;
+    margin-left: 0px;
+    margin-right: 0px;
+ }
+ .title
+ {
+    font-size: x-large;
+    margin-top: 8px;
+ }
+ .prescribe
+ {
+ margin-left: 10%;
+ margin-top: 5%;
+ }
+ img {
+    height: 100%;
+    width: 100%;
+ }
+ .custom-scroll-bar{
+    height:40vh;
+    overflow-y:scroll;
+    overflow-x: hidden;
+  }
+  .custom-scroll-bar::-webkit-scrollbar{
+    width: 10px;
+  }
+  .custom-scroll-bar::-webkit-scrollbar-thumb{
+    background: rgba(0,0,0,.26);
+  }

@@ -1,0 +1,21 @@
+<div *ngIf="!currentUser">
+  <router-outlet></router-outlet>
+</div>
+<div *ngIf="currentUser" class="layout" fxLayout>
+
+  <!-- SIDEBAR -->
+  <kkd-sidebar *ngIf="isLoggedIn" [isExpanded]="isExpanded" (mouseenter)="ToggleSidebar()" (mouseleave)="ToggleSidebar()">
+  </kkd-sidebar>
+
+  <div fxLayout="column" fxFlex="1 0 auto" class="header-and-main-content">
+
+    <!-- HEADER -->
+    <kkd-header *ngIf="isLoggedIn" [currentUser]="currentUser"></kkd-header>
+
+    <!-- MAIN CONTENT -->
+    <div class="main-content" fxFlex="1 0 auto">
+      <router-outlet></router-outlet>
+    </div>
+
+  </div>
+</div>

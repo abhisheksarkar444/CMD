@@ -1,0 +1,33 @@
+<div fxLayout fxLayoutAlign="space-between" class="notification-title">
+  <div>Notifications</div>
+  <div class="pointer" (click)="p.close()">
+    <i class="icon ion-md-close"></i>
+  </div>
+</div>
+<div class="notifications-container">
+  <div fxLayout fxLayoutAlign="center" *ngIf="!notifications" class="notification-container grey-italic-text">
+    No New Notification
+  </div>
+  <div fxLayout fxLayoutAlign="center" *ngIf="notifications.length == 0"
+    class="notification-container grey-italic-text">
+    No New Notification
+  </div>
+  <!--Displaying Notifications-->
+  <div fxLayout fxLayoutAlign="space-between" class="notification-container"
+    *ngFor="let notification of notifications;">
+    <div class="notification-image">
+      <!-- <img [src]="notification.imageSrc" alt="" /> -->
+    </div>
+    <div fxLayout="column">
+      <div>
+        <b>{{ notification.name }}</b><a routerLink="{{notification.notificationType.url}}">
+          {{ notification.description }}
+        </a>
+      </div>
+      <div class="notification-time">{{ GetTimeDifference(notification.notificationtime) }} ago..</div>
+    </div>
+    <div class="attention-required" *ngIf="!notification.isRead">
+      <i class="icon ion-md-information"></i>
+    </div>
+  </div>
+</div>

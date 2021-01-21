@@ -1,0 +1,104 @@
+<div id="main">
+  <div class="div-vital-outer">
+    <div class="div-vital">
+      <div class="div-vital-heading">
+        Vitals&nbsp;<a id="googleBtn">&#x2699;</a>
+      </div>
+    </div>
+    <hr />
+    <div class="div-vital">
+      <div class="col-sm-6 div-vital-inner">
+        <p>ECG</p>
+        <figure>
+          <img src="../../assets/images/heart.svg" alt="{{ecg}} BPM" />
+          <figcaption id="ecg-caption">{{ecg}} BPM</figcaption>
+        </figure>
+      </div>
+      <div class="col-sm-6 div-vital-inner">
+        <figure>
+          <img src="../../assets/images/ecg_graph.gif" alt="Alternate Text" />
+        </figure>
+      </div>
+    </div>
+    <hr />
+    <div class="div-vital">
+      <div class="col-sm-6 div-vital-inner">
+        <p>Temperature</p>
+        <figure>
+          <img src="../../assets/images/temperature.png" alt="{{temperature}} BPM" />
+          <figcaption>{{temperature}} &deg;C</figcaption>
+        </figure>
+      </div>
+      <div class="col-sm-6 div-vital-inner">
+        <figure>
+          <img src="../../assets/images/temperature_graph.gif" alt="Alternate Text" />
+        </figure>
+      </div>
+    </div>
+    <hr />
+    <div class="div-vital">
+      <div class="col-sm-6 div-vital-inner">
+        <p>Diabetes</p>
+        <figure>
+          <img src="../../assets/images/diabetes.svg" alt="{{diabetes}} BPM" />
+          <figcaption>{{diabetes}} mg/dL</figcaption>
+        </figure>
+      </div>
+      <div class="col-sm-6 div-vital-inner">
+        <figure>
+          <img src="../../assets/images/diabetes_graph.jpg" alt="{{diabetes}} BPM" />
+        </figure>
+      </div>
+    </div>
+    <hr />
+    <div class="div-vital">
+      <div class="col-sm-6 div-vital-inner">
+        <p>Respiration Rate</p>
+        <figure>
+          <img src="../../assets/images/respiration.png" alt="{{respirationRate}} BPM" />
+          <figcaption>{{respirationRate}} BPM</figcaption>
+        </figure>
+      </div>
+      <div class="col-sm-6 div-vital-inner">
+        <figure>
+          <img src="../../assets/images/respiration_graph.png" alt="{{diabetes}} BPM" />
+        </figure>
+      </div>
+    </div>
+    <hr />
+    <div class="div-vital">
+      <div id="google-fit-header">
+        <img src="../../assets/images/googlefit.png" alt="{{respirationRate}} BPM" />&nbsp;Google Fit Data
+      </div>
+      <div>
+        <div class="col-sm-4 div-google-fit">
+          <img src="../../assets/images/calories.png" alt="{{calories}} mmHg" />&nbsp;Calories<br />
+          <p ng-bind="calories">
+            {{calories}}&nbsp;mmHg
+          </p>
+          <kkd-bar-chart [p_data]="calories_data" class="graph"></kkd-bar-chart>
+
+        </div>
+        <div class="col-sm-4 div-google-fit">
+          <img src="../../assets/images/steps.png" alt="{{steps}} " />&nbsp;Steps<br />
+          <p ng-bind="steps">
+            {{steps}}
+          </p>
+          <kkd-bar-chart [p_data]="steps_data" class="graph"></kkd-bar-chart>
+
+        </div>
+        <div class="col-sm-4 div-google-fit">
+          <img src="../../assets/images/sleep.png" alt="{{sleep}} hrs" />&nbsp;Sleep<br />
+          <p ng-bind="sleep">
+            <span *ngIf="sleep!=0; else unavailable;">{{sleep}}&nbsp;hrs</span>
+          </p>
+
+          <kkd-bar-chart [p_data]="sleep_data" class="graph"></kkd-bar-chart>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #unavailable>--</ng-template>

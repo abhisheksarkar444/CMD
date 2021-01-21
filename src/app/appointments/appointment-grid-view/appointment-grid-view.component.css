@@ -1,0 +1,56 @@
+.calender-view-selections{   
+  border-radius: 24px;
+  width: 113px;
+  height: 41px;
+  position: relative;
+  top: 3px;
+  left: 15px;
+  background: linear-gradient(90deg, #041f56 50%, #ffffff 50%);
+}
+
+.Calender{
+  background-color: white;
+  padding: 20px;
+  margin-left: 30px;
+  margin-right: 30px;
+}
+
+.heading
+{
+  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  font-size: xx-large;
+  font-weight: bolder;
+  color: #041f56;
+  margin-bottom: 20px;
+}
+.list-view{
+  background-image: url('src/assets/image/list_view.png'); 
+  background-repeat: no-repeat;
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background-size: 30px;
+  position: relative;
+  top: 5px;   
+  left: 15px;
+  cursor: pointer;
+}
+
+.grid-view{
+  background-image: url('src/assets/image/grid_view.png'); 
+  background-repeat: no-repeat;
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background-size: 30px;
+  position: relative;
+  top: 5px; 
+  left: 35px;  
+  cursor: pointer;
+}
+
+.oneline{
+  display:inline-block;
+  
+}
+

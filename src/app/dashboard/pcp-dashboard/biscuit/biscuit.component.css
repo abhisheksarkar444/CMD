@@ -1,0 +1,24 @@
+.bold {
+  font-weight: bold;
+}
+
+.dark-navy-color {
+  color: #18385c;
+}
+
+.decrement {
+  color: red;
+}
+
+.increment {
+  color: green;
+}
+
+.percent-info-text {
+  font-size: 14px;
+  padding-top: 4px;
+}
+
+mat-card {
+  padding-bottom: 0;
+}

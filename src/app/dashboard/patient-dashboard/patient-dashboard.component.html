@@ -1,0 +1,71 @@
+<!-- ACTIONS AND INFO PANEL -->
+<div fxLayout="column" class="actions-and-info-panel">
+
+  <!-- ACTIONS -->
+  <div fxLayout>
+    <div fxFlex="50%" fxLayout fxLayoutGap="25px">
+      <kkd-request-card *ngFor="let request of requests;" [request]="request"></kkd-request-card>
+    </div>
+
+    <!-- PCP INFO -->
+    <div>
+      <kkd-pcp-info-card [detail]="appointment[0]"></kkd-pcp-info-card>
+    </div>
+  </div>
+</div>
+
+<div class="tabs">
+  <mat-tab-group [selectedIndex]="selectedIndex">
+
+    <!-- APPOINTMENTS TAB -->
+    <mat-tab label="Appointments">
+
+      <div class="tab-body-color">
+
+        <!-- FIRST ROW -->
+        <div fxLayout class="first-row">
+          <div fxFlex>
+            <h4 class="bold roboto-font dark-navy-color">{{condition}} ({{ dateAppointment.length }})</h4>
+          </div>
+          <div fxLayout fxLayoutAlign="flex-end" class="third-row">
+            <div class="button-group">
+              <button mat-raised-button (click)="getAppointmentsByDate(-1)" [color]="Previous">Previous</button>
+              <button mat-raised-button (click)="getAppointmentsByDate(0)" [color]="Today">Today</button>
+              <button mat-raised-button (click)="getAppointmentsByDate(1)" [color]="Upcoming">Upcoming</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- SECOND ROW -->
+        <div fxLayout="row wrap" fxLayoutGap="25px grid">
+          <kkd-pcp-card [detail]="detail" (valueChange)="deleteObject($event)" *ngFor="let detail of dateAppointment
+           | paginate
+          : {
+              id: 'listing_pagination',
+              itemsPerPage: 8,
+              currentPage: page,
+              totalItems: totalRec
+            }
+    " fxFlex="25%" fxFlex.md="33.33%" fxFlex.sm="50%" fxFlex.xs="100%" [detail]="detail"></kkd-pcp-card>
+        </div>
+        <!-- PAGINATION -->
+        <div fxLayout fxLayoutAlign="flex-end">
+          <pagination-controls id="listing_pagination" maxSize="5" directionLinks="true" (pageChange)="page = $event">
+          </pagination-controls>
+        </div>
+      </div>
+
+    </mat-tab>
+
+    <!-- PRESCRIPTIONS TAB -->
+    <mat-tab label="Prescriptions">
+
+      <!-- Prescription Elements -->
+      <div class="tab-body-color prescription-padding">
+        <kkd-prescriptions [listItems]="listItems"></kkd-prescriptions>
+      </div>
+
+    </mat-tab>
+
+  </mat-tab-group>
+</div>

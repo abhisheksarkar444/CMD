@@ -1,0 +1,123 @@
+<div class="container" class="quiz_Bg" style="overflow-x:hidden;">
+    <br>
+    <br>
+
+    <div class="row">
+
+        <!-- Disease lists -->
+        <div class="col-md-4">
+            <div class="typeOfdisease_Section ">
+
+
+                <mat-card class="disease-card">
+                    <mat-card-header>
+                        <div mat-card-avatar class="disease-header-image"></div>
+                        <mat-card-title>{{Appointment.providerFirstName}}</mat-card-title>
+                    </mat-card-header>
+                    <hr style="border: 1px solid #a1a3a3;">
+
+                    <p> Please answer all questions.</p>
+
+
+                    <mat-card-content>
+                        <div *ngIf="questions">
+                            <div class="row" *ngFor="let question of questions">
+                                <div class="col-sm-2">
+
+                                    <div
+                                        [ngClass]="{'circle-success': question.questionID <= currentQuestion.questionID ,'circle-primary': question.questionID > currentQuestion.questionID}">
+                                        <div class="tickMark"></div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-10">
+                                    <div class="diseaseName"> {{question.questionText}} </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <br>
+                    </mat-card-content>
+                </mat-card>
+
+            </div>
+        </div>
+        <!-- Disease lists  end -->
+
+
+
+        <!-- Questions -->
+        <div class="col-md-8">
+            <div class="questions_Section" *ngIf="currentQuestion">
+
+                <div class="questionBg">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <p id="quesInformation"> ! 83% of people found this helpful while consulting his/her PCP</p>
+                        </div>
+                    </div>
+                    <br>
+
+
+                    <!-- Question -->
+                    <div class="row">
+                        <div class="col-md-12">
+                            <p id="question"> {{currentQuestion.questionDescription}}</p>
+                        </div>
+                    </div>
+
+
+                    <!-- Previous, Next buttons and user insstruction -->
+                    <div class="row">
+                        <div class="col-md-2">
+                            <p id="previous_btn" style="cursor: pointer;" (click)="previousQuestion()">
+                                Previous << </p>
+                        </div>
+                        <div class="col-md-8">
+                            <p id="userInformation"> Choose your answer below or enter custom answer. </p>
+                        </div>
+
+                        <div class="col-md-2">
+                            <p id="next_btn" style="cursor: pointer;" (click)="nextQuestion()"> Next >> </p>
+                        </div>
+                    </div>
+                </div>
+
+                <br>
+
+                <!-- Options -->
+
+                <div class="row justify-content-md-center" *ngFor="let hint of currentQuestion.hints">
+                    <div class="option_Specs" style="cursor: pointer" (click)="selectAnswer(hint);">{{hint.description}}
+                    </div>
+                </div>
+                <br>
+                <br>
+                <div class="row">
+                    <div class="col text-center">
+                        <button class="btn btn-primary skipBtn_specs" (click)="skipQuestion()">Skip</button>
+                    </div>
+                </div>
+                <br>
+
+                <div class="row">
+                    <div class="col-sm-6 mx-auto customAnswer_Specs">
+                        <h5 style="margin-left:10px;">Custom Answer
+                            <span style="color:gray;"> (Optional) </span>
+                        </h5>
+                        <input type="text" class="form-control" [(ngModel)]="customtext"
+                            placeholder="Enter Reason here">
+                    </div>
+                </div>
+
+            </div>
+            <!-- questions_Section div end -->
+        </div>
+        <!-- Questions div end -->
+    </div>
+    <div class="row">
+        <div class="col text-center">
+            <button [attr.disabled]="CanSaveAppointment == false ? true : null" class="btn btn-success confirmBtn_specs"
+                (click)=saveAppointment()>Confirm</button>
+        </div>
+    </div>
+</div>

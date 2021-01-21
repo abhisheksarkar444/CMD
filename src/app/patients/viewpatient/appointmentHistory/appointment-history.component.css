@@ -1,0 +1,387 @@
+/*Top card Css*/
+@import url("~@angular/material/prebuilt-themes/indigo-pink.css");
+.Inercard-One {
+  width: 1400px;
+  height:100%;
+  border: 1px solid lightgray;
+  background-color: #ffffff;
+}
+.PatientNamesCss {
+  margin-top: -92px;
+  margin-left: 120px;
+}
+
+.FirstNameCss {
+  margin-left: 20px;
+  font-family: sans-serif;
+  font-weight: bold;
+  color: #264466;
+  font-size: 20px;
+}
+.TelPhoneCss {
+  margin-left: 20px;
+  font-family: adobe-clean;
+}
+
+/* Icons Css */
+.topiconscontainer {
+  margin-left: 15px;
+  display: flex;
+}
+
+.iconcss {
+  zoom: 1;
+  color: #2b90ff;
+  padding: 5px;
+}
+.vediocallCss {
+  zoom: 1.2;
+  color: #2b90ff;
+  padding: 4px;
+  margin-top: -1px;
+}
+.divoutericon {
+  border-right: 1px solid;
+  color: #d4d7db;
+  width: 40px;
+}
+
+/*Top Card css End*/
+
+/*top card corners data-*/
+.column-layout {
+  display: flex;
+  margin-top: -150px;
+  margin-left: 350px;
+}
+.main-column {
+  flex: 1;
+  border-right: 1px solid #d4d7db;
+}
+.sidebar-one {
+  flex: 1;
+  border-right: 1px solid #d4d7db;
+}
+.sidebar-two {
+  flex: 1;
+  border-right: 1px solid #d4d7db;
+}
+.sidebar-Three {
+  flex: 1;
+}
+.labelheading {
+  color: #a1a1a1;
+  font-family: sans-serif;
+  font-style: normal;
+  padding: 30px;
+}
+.labeldata {
+  color: #385272;
+  text-align: center;
+}
+
+/*End*/
+/* All Tabs */
+.mat-tab-label-active {
+  background-color: red !important;
+}
+/*End of upper Card*/
+
+.bottom-cards {
+  width: 300px;
+  height: 250px;
+  border: 1px solid lightgray;
+  background-color: #ffffff;
+  margin-top: 10px;
+}
+
+.outer-card {
+  background-color: #eaeaea;
+  height: 680px;
+  margin-left: 20px;
+  padding: 0px;
+  padding-top: 7px;
+}
+
+/*Css On Image*/
+.Image-css {
+  background-color: #eaeaea;
+  border-radius: 50%;
+  margin-left: 22px;
+  width: 90px;
+  height: 90px;
+}
+.footerlavel {
+  color: #2b90ff;
+  font-weight: 200px;
+  font-size: 25px;
+  font-family: adobe-clean, sans-serif;
+}
+.lebel2 {
+  color: #b5b5b5;
+  padding: 50px;
+}
+
+/* CSS For Divs*/
+/* Float four columns side by side */
+.column {
+  float: left;
+  width: 20%;
+}
+
+/* Remove extra left and right margins, due to padding */
+.row {
+  margin: 0 -5px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive columns */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
+}
+
+/* Style the counter cards */
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  text-align: center;
+  background-color: #f1f1f1;
+  margin-top: 30px;
+  margin-left: 80px;
+  width: 100px;
+  height: 100px;
+  border-radius: 7px;
+}
+
+/*Bottom style css */
+.flex-container {
+  display: flex;
+  align-items: stretch;
+  background-color: #f1f1f1;
+}
+ 
+.containerInternalDivs {
+  background-color: #ffffff;
+  width: 100px;
+  margin: 10px;
+  text-align: center;
+  line-height: 75px;
+  font-size: 30px;
+  margin-left: 35px;
+  width: 350px;
+  /* margin-right: 10px; */
+  height: auto;
+
+  flex: 1.2;
+}
+.containerInternalLastDivs {
+  background-color: #ffffff;
+  width: 100px;
+  margin: 10px;
+  line-height: 75px;
+  font-size: 30px;
+  margin-left: 35px;
+  width: 350px;
+  /* margin-right: 10px; */
+  height: auto;
+
+  flex: 1;
+}
+.FirstCardLabel2 {
+  color: #707070;
+  text-align: left;
+  font-family: sans-serif;
+  display: inline-block;
+  border-bottom: 1px solid #707070;
+  font-size: 14px;
+}
+.clickableButton {
+  border-radius: 0 !important;
+  height: 32px !important;
+  width: 40px !important;
+  line-height: 2px !important;
+  background-color: Transparent;
+  box-shadow: 0px 0px 0.5px lightgrey !important;
+  border: 1px solid #942121;
+  margin-left: 100px;
+}
+button {
+  background-color: white;
+}
+#example1 {
+  background-color: transparent;
+  border-radius: 7px;
+  width: 360px;
+  margin-left: 5px;
+  height: 100px;
+  box-shadow: 0.2px 0.2px;
+  margin-top: 10px;
+  display: flex;
+}
+
+[data-letters]:before {
+  content: attr(data-letters);
+  display: inline-block;
+  font-size: 1em;
+  width: 1.5em;
+  height: 1.5em;
+  line-height: 2.5em;
+  text-align: center;
+  border-radius: 50%;
+  background: #19616d;
+  vertical-align: left;
+  margin-right: 10em;
+  color: white;
+  vertical-align: left;
+}
+.circle {
+  background: #19616d;
+  -webkit-box-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  align-items: center;
+  border-radius: 50%;
+  text-align: center;
+  margin: 0px 0px;
+  font-size: px;
+  padding: 15px;
+  display: -webkit-box;
+  display: flex;
+  height: 20px;
+  width: 20px;
+  color: #fff;
+}
+.labeltext {
+  font-size: 12px;
+  margin-top: -30px;
+  margin-left: 15px;
+  font-family: inherit;
+  font-weight: bold;
+  width: 600px;
+}
+.div_text {
+  font-size: 15px;
+  margin-top: -2px;
+  margin-left: 100px;
+  font-family: inherit;
+  font-weight: bold;
+  border-left: 0.5px solid;
+  height: 40px;
+  display: -webkit-box;
+  display: flex;
+  align-items: center;
+  align-items: flex-start;
+  padding-left: 10px;
+  align-items: center;
+}
+.mat-icon {
+  vertical-align: middle;
+}
+
+.v-align-middle {
+  vertical-align: middle;
+}
+
+.cardlabelcss {
+  font-size: large;
+  color: #18385c;
+  display: block;
+  padding-left: 20px;
+  line-height: 2;
+}
+
+/*last card from bottom div css*/
+.lastcardtop {
+  height: 250px;
+  border: 1px solid;
+  margin-top: 10px;
+  width: 300px;
+  margin-left: 20px;
+  border-radius: 12px;
+}
+.doctordiscription {
+  color: #707070;
+  font-size: small;
+  display: block;
+  padding-left: 30px;
+  line-height: 0.4;
+  font-weight: bold;
+  margin-top: -10px;
+}
+.calanderdropdownCss {
+  color: #19616d;
+  font-size: small;
+  display: block;
+  padding-left: 170px;
+  font-weight: bold;
+  margin-top: -40px;
+  width: 120px;
+}
+
+.lastdivs {
+  font-size: large;
+  color: #18385c;
+  display: block;
+  padding-left: 20px;
+  line-height: 1;
+}
+.csslastfordiv {
+  height: 20px;
+  border: 1px solid;
+  margin-top: 10px;
+  font-size: 10px;
+  width: 300px;
+  margin-left: 20px;
+  border-radius: 12px;
+}
+
+.mat-expansion-panel-header-description {
+  flex-grow: 0;
+}
+
+.smallcircle {
+  background: red;
+  -webkit-box-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  align-items: center;
+  border-radius: 50%;
+  text-align: center;
+  margin: 30px 25px;
+  font-size: 15px;
+  padding: 10px;
+  display: -webkit-box;
+  display: flex;
+  height: 0px;
+  width: 0px;
+  color: #fff;
+}
+.artigo_nome {
+  font-size: 10px;
+}
+
+.mat-tab-label {
+  height: 60px;
+  padding: 0 25px;
+  cursor: pointer;
+  box-sizing: border-box;
+  opacity: 0.6;
+  min-width: 400px;
+  text-align: center;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap;
+  position: relative;
+}
+
+/*End */

@@ -1,0 +1,13 @@
+<mat-form-field>
+
+    <span matPrefix style="margin-right: 30px; margin-top:10px;">
+        <mat-icon style="zoom:0.8;">location_on</mat-icon>
+    </span>
+
+    <mat-select placeholder="Select Clinic">
+
+        <mat-option *ngFor="let hospitalLists of listof_hospitals" value="hospitalLists.value">
+            {{hospitalLists.viewValue}}
+        </mat-option>
+    </mat-select>
+</mat-form-field>

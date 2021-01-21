@@ -1,0 +1,13 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\app",
+    "\\src\\app\\chat-room",
+    "\\src\\app\\chat-room\\services",
+    "\\src\\app\\chat-room\\vitals",
+    "\\src\\app\\dashboard",
+    "\\src\\app\\dashboard\\models"
+  ],
+  "PreviewInSolutionExplorer": false
+}

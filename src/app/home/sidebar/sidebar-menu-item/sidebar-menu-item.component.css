@@ -1,0 +1,48 @@
+.list-item {
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+}
+
+.active {
+  background-color: white;
+  padding: 0 13px;
+  margin-left: -13px;
+  border-radius: 10px 0 0 10px;
+  animation: fadein 0.5s;
+}
+
+.icon {
+  font-size: 2em;
+  color: white;
+}
+
+.active .icon {
+  color: #18385c;
+}
+
+.text {
+  color: white;
+  padding-left: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.active .text {
+  color: #18385c;
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}

@@ -1,0 +1,40 @@
+<div *ngIf="prescription?.length;else NoDataFound">
+
+  <div class="lastcardtop" (ApID)="this.ApID = $event" *ngFor="let pres of prescription">
+    <div style="border-bottom: 1px solid;height: 45px;">
+      <label class="cardlabelcss"> {{pres.category}}</label>
+
+    </div>
+    <div style="border-bottom: 1px solid;height: 45px;">
+      <label class="cardlabelcss">Refer</label>
+      <label class="doctordiscription">Dr.{{pres.createdBy}}</label>
+    </div>
+    <div style="border-bottom: 1px solid;height: 45px;">
+      <label class="cardlabelcss">Date & Time</label>
+      <label class="doctordiscription">{{pres.createdDate | date}}</label>
+    </div>
+    <div style="border-bottom: 1px solid;height: 45px;">
+      <label class="cardlabelcss">Medical Store</label>
+      <label class="doctordiscription">Med Plus tirichapalli</label>
+    </div>
+    <div>
+      <label class="cardlabelcss">Medicines</label>
+      <label class="doctordiscription" *ngFor="let medicine of medicines">{{medicine.medicineName}} <br><br><br></label>
+    </div>
+  </div>
+
+
+
+  <div class="csslastfordiv">
+    <label class="lastdivs">Head Ache</label>
+  </div>
+  <div class="csslastfordiv">
+    <label class="lastdivs">Stress</label>
+  </div>
+  <div class="csslastfordiv">
+    <label class="lastdivs">Back Pain</label>
+  </div>
+</div>
+<ng-template #NoDataFound>
+  <p style="text-align: center;color:rosybrown;font-size:18px">Result Not Found</p>
+</ng-template>

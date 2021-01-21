@@ -1,0 +1,24 @@
+/*----------- Patient name ---------- */
+.patientName_label{
+    font-size: 30px;
+    color: #0e4b01;
+    font-weight: bold;
+}
+
+.patientName_input{
+    border-radius: 20px;
+    border: 1px solid #004d90;
+    width: 300px;
+}
+
+::placeholder {  
+    color: #474747;
+    opacity: 0.5;
+    font-style: italic;
+    text-align: center;
+}
+
+.confirmBtn_specs{
+    width: 200px;
+    border-radius: 15px;
+}

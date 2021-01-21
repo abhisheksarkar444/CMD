@@ -1,0 +1,14 @@
+.request-button {
+  width: 150px;
+  height: 150px;
+}
+
+.request-button-icon i {
+  font-size: 80px;
+  color: #0492ff;
+}
+
+.request-button-title {
+  white-space: normal;
+  line-height: 1.5;
+}

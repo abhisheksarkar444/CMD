@@ -1,0 +1,43 @@
+<div class="row">
+    <div class="column">
+        <img class="img-responsive" src="../../../assets/images/CMD1.jpg" alt="" width="100%">
+    </div>
+    <div class="column" style="text-align: center; padding: 100px;">
+        <div class="col-lg-12" style="margin: auto;">
+            <h1><label style="color: #0b385d;font-weight: bold;font-size: 25px;">Welcome to CMD</label></h1>
+        </div>
+
+        <form [formGroup]="loginForm" class="login-container" (ngSubmit)="login(loginForm)">
+            <div class="col-lg-12">
+                <mat-form-field class="example-full-width">
+                    <label>Username</label>
+                    <input matInput name="UserName" placeholder="" value="" formControlName="username">
+                    <div class="alert  alert-danger"
+                        *ngIf="loginForm.get('username').hasError('required') && loginForm.get('username').touched">
+                        Username is required
+                    </div>
+                </mat-form-field>
+            </div>
+            <div class="col-lg-12">
+                <mat-form-field class="example-full-width">
+                    <label>Password</label>
+                    <input matInput name="Password" type="password" placeholder="" value="" formControlName="password">
+                    <div class="alert  alert-danger"
+                        *ngIf="loginForm.get('password').hasError('required') && loginForm.get('password').touched">
+                        password is required
+                    </div>
+                </mat-form-field>
+            </div>
+            <div class="alert  alert-danger"
+                *ngIf="showLoginErrorMessage">
+                Invalid username and password, Please try again!
+            </div>
+            <div class="col-lg-12">
+                <div class="example-button-row">
+                    <button mat-raised-button type="submit" color="primary"
+                        style="background-color: #0b385d;">Login</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

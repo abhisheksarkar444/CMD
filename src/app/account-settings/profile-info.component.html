@@ -1,0 +1,64 @@
+<br>
+
+<div class="container">
+    <div class="row">
+
+        <div class="col-md-12" style="margin-left: 10px;">
+            <form [formGroup]="profileform" class="form-horizontal">
+                <div class="panel panel-primary">
+
+                    <div class="panel-body">
+                        <div class="row">
+                            <br>
+                            <div class="col-md-2">
+                                <label class="hoverable" for="fileInput">
+                                    <img style="padding: 10px;" [src]="imageUrl">
+                                    <div class="hover-text">Choose Image</div>
+                                    <div class="background"></div>
+                                </label>
+                                <br />
+                                <input id="fileInput" type='file' (change)="onSelectFile($event.target.files)"
+                                    accept="image/*">
+                            </div>
+                            <div class="col-md-10">
+
+                                <div class="row gr">
+                                    <div class="col-md-1">Name</div>
+                                    <div class="col-md-1">
+                                        <h5>Dr.</h5>
+                                    </div>
+                                    <div class="col-md-10"><input type="text" [value]="fullName" formControlName="Name"
+                                            class="form-control" style="border:0;border-bottom: 1px solid black;"><br>
+                                    </div>
+                                </div>
+                                <div class="row gr">
+                                    <div class="col-md-2"> NPI no</div>
+                                    <div class="col-md-10"><input type="text" [value]="npi" formControlName="NPIno"
+                                            class="form-control" style="border:0;border-bottom: 1px solid black;"><br>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <div>
+                                <div class="row gr">
+                                    <div class="col-md-3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Practice Location</div>
+
+                                    <div class="col-md-9"><input type="text" [value]="pLocation"
+                                            formControlName="PracticeLocation" class="form-control"
+                                            style="border:0;border-bottom: 1px solid black;"><br>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>

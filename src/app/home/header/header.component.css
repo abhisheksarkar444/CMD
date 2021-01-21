@@ -1,0 +1,22 @@
+.header {
+  position: absolute;
+  width: 100%;
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.20);
+  top: 0;
+  z-index: 999;
+}
+
+.notifications {
+  color: lightgrey;
+  font-size: 2em;
+}
+
+.user-image {
+  padding: 5px 10px 5px 0;
+}
+
+.user-image img {
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+}

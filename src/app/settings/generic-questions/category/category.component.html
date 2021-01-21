@@ -1,0 +1,54 @@
+<div fxLayout style="padding: 10px 10px 10px 10px;border-bottom: 1px solid lightgrey">
+
+  <mat-accordion>
+    <mat-expansion-panel [expanded]='isExpanded'>
+      <mat-expansion-panel-header (click)="expand()">
+        <div fxLayout style="padding: 5px 0;">
+          <div fxFlex="80%" fxLayout="column" fxLayoutAlign="center">
+            <div style="font-size: 24px;">{{ category["description"] }}</div>
+          </div>
+          <div fxFlex="20%">
+            <button mat-raised-button *ngIf="!isExpanded">
+              <i style="font-size: 30px;color: #1f9dff;" class="icon ion-md-add"></i>
+            </button>
+          </div>
+        </div>
+      </mat-expansion-panel-header>
+
+
+
+      <form [formGroup]="questionForm" (ngSubmit)="AddToQuestionArray()">
+        <div>
+          <mat-form-field>
+            <input matInput placeholder="Title" type="text" formControlName="questionText">
+          </mat-form-field>
+          <br>
+          <mat-form-field>
+            <input matInput placeholder="Question" type="text" formControlName="questionDescription">
+          </mat-form-field>
+          <br>
+          <mat-form-field>
+            <input matInput placeholder="Option 1" type="text" formControlName="option1">
+          </mat-form-field>
+          <br>
+          <mat-form-field>
+            <input matInput placeholder="Option 2" type="text" formControlName="option2">
+          </mat-form-field>
+          <br>
+          <mat-form-field>
+            <input matInput placeholder="Option 3" type="text" formControlName="option3">
+          </mat-form-field>
+          <br>
+          <button mat-raised-button type="submit">
+            <i style="font-size: 30px;color: #1f9dff;" class="icon ion-md-checkmark"></i>
+          </button>
+          <button mat-raised-button (click)="this.isExpanded = !this.isExpanded;" type="button">
+            <i style="font-size: 30px;color: hsl(0, 100%, 56%);margin-left: 10px;" class="icon ion-md-close"></i>
+          </button>
+        </div>
+
+      </form>
+    </mat-expansion-panel>
+
+  </mat-accordion>
+</div>

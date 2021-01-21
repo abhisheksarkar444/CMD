@@ -1,0 +1,48 @@
+<div class="container">
+  <table class="table table-borderless table-hover">
+    <caption>Latest Prescription</caption>
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Medicine</th>
+        <th scope="col">Intake Time</th>
+        <th scope="col">After/Before Food</th>
+        <th scope="col">Other Instructions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let medicine of medicines; let i=index;" class="tr">
+        <th scope="row"><span class="sno">{{i+1}}</span></th>
+        <td><span *ngIf="medicine.medicineName!=null; else unavailable;" class="medicine-name">{{medicine.medicineName |
+            uppercase}}</span></td>
+        <td>
+          <div class="Container">
+            <div
+              [ngClass]="{'white-circle': !medicine.medicineCycle.includes('Morning'), 'blue-circle':medicine.medicineCycle.includes('Morning')}"
+              id="left"></div>
+            <div class="rectangle"></div>
+            <div
+              [ngClass]="{'white-circle': !medicine.medicineCycle.includes('Afternoon'), 'blue-circle':medicine.medicineCycle.includes('Afternoon')}"
+              id="right"></div>
+            <div class="rectangle"></div>
+            <div
+              [ngClass]="{'white-circle': !medicine.medicineCycle.includes('Night'), 'blue-circle':medicine.medicineCycle.includes('Night')}">
+            </div>
+          </div>
+        </td>
+        <td *ngIf="medicine.isAfterFood; else after;"><span class="af">AF</span></td>
+        <ng-template #after>
+          <td><span class="af">BF</span></td>
+        </ng-template>
+        <td>
+          <div class="desc"
+            *ngIf="medicine.medicineDescription!=null && medicine.medicineDescription!=''; else unavailable;">
+            {{medicine.medicineDescription}}</div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<ng-template #unavailable>
+  <div class="desc">--</div>
+</ng-template>

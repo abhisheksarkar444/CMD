@@ -1,0 +1,45 @@
+<div class="container">
+
+    <hr style="border: 1px solid #035b7e;">
+    <br>
+
+    <h3>Choose category</h3>
+    <div class="container" style="margin:15px">
+        <div class="row">
+            <div style="margin-bottom:10px;text-align: center" class="col-md-3" *ngFor="let cat of QuestionCategories">
+                <button style="border-radius: 20%; width: 150px" class="btn"
+                    [ngClass]="{'btn-outline-primary': cat.id != catId, 'btn-primary': cat.id == catId}"
+                    (click)="selectedCategory(cat.id)">{{cat.description}}</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="row justify-content-md-center">
+        <form [formGroup]="reasonForm">
+            <div class="form d-flex align-items-center">
+                <div class="text-danger">*</div>
+                <div style="margin-left: 10px">
+                    <input type="text" formControlName="reasonDescription" class="form-control patientIssues_input"
+                        (keyup)="onKey($event)" placeholder="Enter Reason For Visit">
+                </div>
+            </div>
+            <div *ngIf="reasonForm.status == 'INVALID'" class="text-danger">
+                Please enter minimum 10 characters in reason field.
+            </div>
+        </form>
+    </div>
+
+    <br>
+    <br>
+
+    <div class="d-flex justify-content-between">
+        <div>
+            <button class="btn btn-danger confirmBtn_specs"
+                (click)="parent.step2_show = false; parent.step1_show = true">Previous</button>
+        </div>
+        <div>
+            <button [attr.disabled]="proceed == false ? true : null" class="btn btn-success confirmBtn_specs"
+                (click)="parent.step2_show = false; parent.step3_show = true;SetReason();">Next</button>
+        </div>
+    </div>
+</div>

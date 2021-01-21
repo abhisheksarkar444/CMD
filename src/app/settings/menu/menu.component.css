@@ -1,0 +1,10 @@
+.active {
+  color: #18385c;
+  font-size: 25px;
+}
+
+.option {
+  text-align: center;
+  padding: 15px 0;
+  cursor: pointer;
+}

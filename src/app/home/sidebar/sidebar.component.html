@@ -1,0 +1,25 @@
+<div fxLayout="column" class="sidebar">
+
+  <!-- APP NAME -->
+  <div fxLayout fxLayoutAlign="space-between" class="text app-name-container">
+    <div *ngIf="isExpanded" class="app-name"> {{ appName }} </div>
+    <div><i class="material-icons sort">sort</i></div>
+  </div>
+
+  <div fxLayout="column" fxLayoutAlign="space-between" fxFlex="1 1 auto">
+
+    <!-- MENU ITEMS -->
+    <div class="menu-item-container">
+      <kkd-sidebar-menu-item [isExpanded]="isExpanded" [item]="item" *ngFor="let item of sidebarMenuItems;">
+      </kkd-sidebar-menu-item>
+    </div>
+
+    <!-- ASSISTANCE -->
+    <div fxLayout="column" class="mic-container">
+      <div fxFlex><i class="icon ion-md-mic"></i></div>
+      <div [ngStyle]="{'color': isExpanded ? 'white' : '#18385c' }" class="text nowrap">Click for Assistance</div>
+    </div>
+
+  </div>
+
+</div>

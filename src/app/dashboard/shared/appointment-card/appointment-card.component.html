@@ -1,0 +1,62 @@
+<mat-card>
+  <!-- ATTENTION REQUIRED-->
+  <div class="attention-required" *ngIf="detail.appointment_Status=='Urgent'"><i class="icon ion-md-information"></i>
+  </div>
+  <!-- -->
+  <!-- FIRST ROW -->
+
+  <div fxLayout>
+    <!-- IMAGE -->
+    <div fxFlex="30%"><img class="display-picture" [src]="detail.patientImage"></div>
+    <!-- [src]="detail.patientImage" -->
+
+    <!-- NAME & ACTIONS -->
+    <div fxFlex="65%" fxLayout="column" fxLayoutAlign="space-between">
+      <div class="name">{{ detail.memberFirstName }} {{detail.memberLasttName}}</div>
+      <div *ngIf="status else load">
+        <kkd-communication></kkd-communication>
+      </div>
+      <ng-template #load>
+        <div fxLayout fxLayoutAlign="space-between" class="appointment-status-action" *ngIf="!isLoading else loading">
+          <button (click)="Approve()" mat-button><i class="icon ion-md-checkmark-circle"></i></button>
+          <div class="separator"></div>
+          <button (click)="Cancel()" mat-button><i class="icon ion-md-close-circle"></i></button>
+        </div>
+        <ng-template #loading>
+          <div class="throbber">
+            <div fxLayout="column" fxLayoutAlign="center" style="height: 100%;">
+              <div fxLayout fxLayoutAlign="center">
+                <div class="lds-ripple">
+                  <div></div>
+                  <div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </ng-template>
+      </ng-template>
+    </div>
+  </div>
+
+  <!-- SECOND ROW -->
+  <div fxLayout class="second-row">
+    <div fxFlex="150px" fxLayout="column" fxLayoutAlign="center" class="time-date">
+      <div class="time">{{ detail.startTime | date:'shortTime' }}</div>
+      <div class="date">{{ detail.startTime | date}}</div>
+    </div>
+    <div fxFlex fxLayout="column" fxLayoutAlign="center">
+      <div class="issue" *ngFor="let reason of detail.reasons;let i = index;">
+        <div *ngIf="i==0"> {{ reason.description }}</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- THIRD ROW -->
+  <div fxLayout="column" fxLayoutAlign="center">
+    <button mat-button color="primary" *ngIf="detail.appointment_Status!=='Closed' else feed">View Details</button>
+    <ng-template #feed>
+      <a mat-button color="primary" routerLink="/Rating">Feedback</a>
+    </ng-template>
+  </div>
+</mat-card>
+<br>

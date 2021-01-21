@@ -1,0 +1,27 @@
+<div fxLayout fxLayoutAlign="flex-end" class="header">
+  <!-- LOGOUT -->
+  <div fxLayout="column" fxLayoutAlign="center">
+    <button mat-button (click)="Logout()">Logout</button>
+  </div>
+
+  <!-- NOTIFICATIONS -->
+  <div fxLayout="column" fxLayoutAlign="center">
+    <button mat-button [ngbPopover]="notificationContent" [autoClose]="false" triggers="manual" #p="ngbPopover"
+      (click)="p.open()">
+      <i class="icon ion-md-notifications notifications"></i>
+    </button>
+    <ng-template #notificationContent>
+      <kkd-notification [p]="p" [notifications]="notifications"></kkd-notification>
+    </ng-template>
+  </div>
+
+  <!-- USERNAME -->
+  <div fxLayout="column" fxLayoutAlign="center">
+    <button mat-button>{{ username }}</button>
+  </div>
+
+  <!-- USER IMAGE -->
+  <div fxLayout="column" fxLayoutAlign="center" class="user-image">
+    <img [src]=imgSrc alt="" />
+  </div>
+</div>

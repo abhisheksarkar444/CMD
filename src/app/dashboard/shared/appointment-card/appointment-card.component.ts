@@ -1,0 +1,94 @@
+import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
+import { Appointment } from "../../models/appointment.model";
+import { AppointmentDetailService } from "../../services/appointment-detail.service";
+import { Patient } from "src/app/Chats/dataTypes/Patients.type";
+import { NotificationService } from 'src/app/notification/services/notification.service';
+import { Notification } from 'src/app/notification/models/notification.model';
+import { NotificationType } from 'src/app/notification/models/notificationtype.model';
+
+@Component({
+  selector: "kkd-appointment-card",
+  templateUrl: "./appointment-card.component.html",
+  styleUrls: ["./appointment-card.component.css"]
+})
+export class AppointmentCardComponent implements OnInit {
+
+  @Input() detail: Appointment;
+  @Input() num: number;
+  @Output() valueChange: EventEmitter<number> = new EventEmitter<number>();
+
+
+  notification: Notification = new Notification();
+  isLoading: boolean = false;
+  age: number = 24;
+  cancelled: boolean = false;
+  status: boolean;
+  cancelStatus: any;
+
+  constructor(private appointmentService: AppointmentDetailService, private notificationService: NotificationService) { }
+
+  ngOnInit() {
+    if (this.detail.appointment_Status == "Approved" || this.detail.appointment_Status == "Closed") {
+      this.status = true;
+    } else {
+      this.status = false;
+    }
+    this.getPatientImage();
+  }
+
+  public getPatientImage() {
+    this.appointmentService
+      .getPatientImage(this.detail.patientUniqueKey)
+      .subscribe((p: Patient) => {
+        this.detail.patientImage = p.profilePhoto_Path;
+      });
+  }
+
+  public Cancel() {
+    this.isLoading = true;
+    this.appointmentService
+      .updateAppointmentStatusById(this.detail.appointmentID.toString(), "3")
+      .subscribe((status: string) => {
+        if (status == "Success") {
+          this.status = false;
+          this.cancelled = true;
+          this.valueChange.emit(this.detail.appointmentID);
+          this.isLoading = false;
+          this.DenyNotification();
+        }
+      });
+  }
+
+  public Approve() {
+    this.isLoading = true;
+    this.appointmentService
+      .updateAppointmentStatusById(this.detail.appointmentID.toString(), "1")
+      .subscribe((status: string) => {
+        if (status == "Success") {
+          this.status = true;
+          this.cancelled = false;
+          this.detail.appointment_Status = "Approved";
+          this.isLoading = false;
+          this.ApproveNotification();
+        }
+      });
+  }
+
+  public ApproveNotification() {
+    this.notification.receiver_UserID = this.detail.patientUniqueKey;
+    this.notification.notificationType = new NotificationType();
+    this.notification.notificationType.url = `http://172.30.11.7:8326/appointementConfirmaton/` + `${this.detail.appointmentID}`;
+    this.notificationService.SendNotificationIfAppointmentSuccess(this.notification).subscribe(not => {
+      console.log("Notification service call " + not);
+    });
+  }
+
+  public DenyNotification() {
+    this.notification.receiver_UserID = this.detail.patientUniqueKey;
+    this.notification.notificationType = new NotificationType();
+    this.notification.notificationType.url = `http://172.30.11.7:8326/appointementConfirmaton/` + `${this.detail.appointmentID}`;
+    this.notificationService.SendNotificationIfAppointmentDenied(this.notification).subscribe(not => {
+      console.log("Notification service call " + not);
+    });
+  }
+}

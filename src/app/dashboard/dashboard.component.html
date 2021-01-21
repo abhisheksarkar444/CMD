@@ -1,0 +1,8 @@
+<div>
+  <div *ngIf="isDoctor else load">
+    <kkd-pcp-dashboard></kkd-pcp-dashboard>
+  </div>
+  <ng-template #load>
+    <kkd-patient-dashboard></kkd-patient-dashboard>
+  </ng-template>
+</div>

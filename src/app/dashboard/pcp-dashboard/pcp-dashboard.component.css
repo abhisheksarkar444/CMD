@@ -1,0 +1,44 @@
+.bold {
+  font-weight: bold;
+}
+
+.dark-navy-color {
+  color: #18385c;
+}
+
+.roboto-font {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.third-row {
+  border-top: 1px solid lightgrey;
+  border-bottom: 1px solid lightgrey;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  padding: 10px 0 10px 0;
+}
+
+.new-appointment {
+  color: blue;
+}
+
+.new-appointment tr td:first-child {
+  font-size: 30px;
+}
+
+.grid-flex {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.button-group button {
+  margin-left: 10px;
+}

@@ -1,0 +1,164 @@
+@import "@angular/material/prebuilt-themes/deeppurple-amber.css";
+
+.outercard {
+ height: auto;
+ background-color: #d3d3d3;
+ width: -webkit-fill-available;
+}
+
+
+.example-card {
+ border-radius: 0px;
+ background-color: white;
+ height: auto;
+}
+.btn4 {
+ color: #4b7ab1;
+}
+
+/* You can add global styles to this file, and also import other style files */
+.form-control {
+ box-shadow: 0 10px 40px 0 #b0c1d9;
+}
+.form-control::placeholder {
+ font-family: FontAwesome;
+}
+html,
+body {
+ height: 100%;
+}
+body {
+ margin: 0;
+ font-family: "Open Sans", sans-serif;
+}
+
+p {
+ line-height: 26px;
+}
+
+.mat-card:not([class*="mat-elevation-z"]) {
+ box-shadow: 10px;
+ margin: 14px;
+}
+
+button.mat-icon-button {
+ box-shadow: 0px 0px 0.5px lightgrey !important;
+ border: 1px solid #d2cfcf;
+ margin-left: 5px;
+}
+
+.card-heading {
+ font-family: "Open Sans", sans-serif;
+ font-weight: 500;
+ font-size: 18px !important;
+ color: #4a4a4a;
+ display: inline-block;
+ margin: 400;
+}
+
+button.mat-card:not([class*="mat-elevation-z"]) {
+ box-shadow: none;
+ border: none !important;
+}
+
+/* Customised box-shadow for cards  */
+.mat-card:not([class*="mat-elevation-z"]) {
+ box-shadow: 0 2px 7px -1px rgba(0, 0, 0, 0.2), 0 1px 6px 0 rgba(0, 0, 0, 0.14),
+   0 1px 3px 0 rgba(0, 0, 0, 0.12);
+}
+
+.no-border {
+ border: none !important;
+}
+
+.page-heading {
+ font-weight: 500;
+ font-size: 22px !important;
+ color: #4a4a4a;
+ display: inline-block;
+ margin: 400;
+}
+
+.page-subheading {
+ font-weight: 500;
+ font-size: 18px !important;
+ color: #4a4a4a;
+ font-family: "Open Sans", sans-serif;
+}
+
+.mat-sidenav-content {
+ background: white !important;
+}
+
+.mat-icon-button {
+ box-shadow: 1px 1px 3px lightgrey !important;
+ border-radius: 0 !important;
+ height: 40px !important;
+ width: 40px !important;
+ line-height: 2px !important;
+}
+
+.save-button {
+ color: #4b7ab1;
+}
+
+.cancel-button {
+ color: #b92727;
+}
+
+.form-control {
+ display: block;
+ width: 30%;
+ height: 24px;
+ margin-left: 800px;
+ padding: 6px 12px;
+ font-size: 14px;
+ margin-top: -50px;
+ line-height: 1.42857143;
+ color: #555;
+ background-color: #fff;
+ background-image: none;
+ border: 1px solid #ccc;
+ border-radius: 4px;
+ transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+}
+
+.form-control[_ngcontent-c0] {
+ box-shadow: 0 10px 40px 0 #b0c1d9;
+}
+
+a.card-block {
+ color: black;
+}
+
+/* div img{
+  position: relative;
+  top: -19px;
+} */
+
+
+div mat-icon{
+  margin-left: 90%;
+}
+
+.spinner-border text-muted {
+  left: 50%;
+  margin-left: -4em;
+  
+}
+
+ .NameCssforPatient
+ {
+    margin-left: 20px;
+    font-family: serif;
+    font-weight: bold;
+    top: 209px;
+    left: 278px;
+    width: 160px;
+    height: 23px;
+    text-align: left;
+    font: Bold 18px/13px Source Sans Pro;
+    letter-spacing: 0;
+    color: #4D4F5C;
+    opacity: 1;
+ }

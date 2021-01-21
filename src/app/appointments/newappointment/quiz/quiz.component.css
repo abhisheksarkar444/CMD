@@ -1,0 +1,178 @@
+.quiz_Bg{
+    background: -moz-linear-gradient(3deg, rgba(145,184,255,1) 0%, rgba(60,151,181,1) 58%, rgba(0,128,128,1) 100%); /* ff3.6+ */
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%, rgba(145,184,255,1)), color-stop(58%, rgba(60,151,181,1)), color-stop(100%, rgba(0,128,128,1))); /* safari4+,chrome */
+    background: -webkit-linear-gradient(3deg, rgba(145,184,255,1) 0%, rgba(60,151,181,1) 58%, rgba(0,128,128,1) 100%); /* safari5.1+,chrome10+ */
+    background: -o-linear-gradient(3deg, rgba(145,184,255,1) 0%, rgba(60,151,181,1) 58%, rgba(0,128,128,1) 100%); /* opera 11.10+ */
+    background: -ms-linear-gradient(3deg, rgba(145,184,255,1) 0%, rgba(60,151,181,1) 58%, rgba(0,128,128,1) 100%); /* ie10+ */
+    background: linear-gradient(87deg, rgba(145,184,255,1) 0%, rgba(60,151,181,1) 58%, rgba(0,128,128,1) 100%); /* w3c */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#91B8FF', endColorstr='#008080',GradientType=1 ); /* ie6-9 */
+}
+
+.vLine{
+    display: inline-block;
+    width: 2px;
+    padding: 2px;
+    background-color: gray;
+    height: 70px;
+    margin-left: 22px;
+    margin-top: 23px;
+}
+
+.typeOfdisease_Section{
+    background-color: white;  
+    height: 500px;
+    border-radius: 15px;
+    margin-left: 25px;
+}
+
+.inlineBlock{
+    display:inline-block; 
+}
+
+.mat-card-avatar {
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    object-fit: cover;
+}
+
+.disease-card {
+    border: none;
+    box-shadow: none;
+    border-radius: 15px;
+  }
+  
+.disease-header-image { 
+    background-image: url('src/assets/images/Dr.John.jpg');
+    background-size: cover;
+}
+
+.diseaseName{    
+    font-size: 22px;
+    margin-top: 5px;
+    margin-left: 20px;
+}
+
+
+.circle-success {
+    background: #1bbf09; 
+    border:2px solid #1bbf09;       
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-left: 15px;
+}
+
+.circle-primary {
+    background: #ffffff; 
+    border:2px solid #a5a5a5;       
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-left: 15px;
+}
+
+.circle-info {
+    background: #ffffff; 
+    border:2px solid #037b91;       
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-left: 15px;
+}
+
+.tickMark{
+    position: relative;
+    background-image: url('src/assets/images/tickMark.png');
+    background-repeat: no-repeat;
+    background-size: 25px;
+    height: 25px;
+    width: 25px;
+    margin-left: 13px;
+    top: 11px;
+}
+
+/* ----------------- Question ---------------- */
+ 
+.questions_Section{
+    width: 97%;
+    height: 100%;
+}
+
+ .questionBg{
+    background-color: #ffffff;
+    height: 220px;
+    border-radius: 15px;
+}
+
+#quesInformation{
+    text-align: right;
+    margin-right: 20px;
+    top: 15px;
+    position: relative;
+    color:#b6b2b2;
+}
+
+#question{
+    text-align: center;
+    font-size: 26px;
+    color: #033d54;
+}
+
+#userInformation{    
+    text-align: center;  
+    font-size: 20px;
+    color: gray;
+}
+
+#previous_btn{    
+    font-weight: bold;
+    color: #033d54;
+    font-size: 19px; 
+    text-align: center;  
+}
+
+#next_btn{   
+    font-weight: bold;
+    color: #033d54;
+    font-size: 19px; 
+    text-align: center; 
+}
+ 
+.option_Specs{
+    font-size: 25px;
+    color: #033d54;
+    background-color: white;
+    width: 50%;
+    text-align: center;
+    padding: 20px 10px 30px 5px;
+    border: 1px solid #d8d5d5;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+}
+
+.skipBtn_specs{
+   background-color: white;
+    width: 10%;
+    border-radius: 15px;
+    color: #033d54;
+    font-weight: bold; 
+}
+
+.customAnswer_Specs{
+    color: #034964;
+    background-color: white;
+    width: 50%;   
+    padding: 20px 10px 30px 5px;
+    border: 1px solid #d8d5d5;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.1);    
+}
+
+::placeholder {  
+    color: #474747;
+    opacity: 0.5;
+    font-style: italic;
+    text-align: left;
+  }

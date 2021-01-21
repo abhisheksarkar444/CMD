@@ -1,0 +1,69 @@
+<div class="row fullheight">
+    <div class="column1 fullheight">
+        <mat-card class="example-card">
+            <mat-card-header>
+                <mat-icon class="chatbox">chat</mat-icon>
+                <mat-icon class="ellipsis">more_vert</mat-icon>
+
+                <div mat-card-avatar class="example-header-image" *ngIf="tempUser"
+                    [ngStyle]="{'background-image':'url(' + tempUser.profilePhoto_Path + ')'}"><span class="dot"></span>
+                </div>
+
+                <mat-card-title style="font-size: 16px;">{{userName}}</mat-card-title>
+                <mat-card-subtitle>
+                </mat-card-subtitle>
+            </mat-card-header>
+
+        </mat-card>
+
+        <mat-form-field class="example-full-width" style="width: 100%;">
+            <div class="search-session">
+                <input matInput name="search" placeholder="Search for Chat or Session" [formControl]="queryField"
+                    value="">
+            </div>
+        </mat-form-field>
+
+        <mat-card class="example-card" style="overflow: auto;height:78.5%; cursor: pointer;">
+            <div *ngIf="others">
+                <mat-card-header *ngFor="let item of others" (click)="userHistory(item)">
+
+                    <mat-icon class="phone">phone</mat-icon>
+                    <mat-icon class="videocall">video_call</mat-icon>
+                    <mat-icon class="ellipsis">more_vert</mat-icon>
+
+                    <div mat-card-avatar class="example-header-image"
+                        [ngStyle]="{'background-image':'url(' + item.profilePhoto_Path + ')'}">
+                        <div *ngFor="let x of storedArray">
+                            <div *ngIf="x===item.physicianUniqueKey || x===item.patientUniqueKey">
+                                <span class="dot"
+                                    [ngStyle]="{'background-color': 'Online'=='Online' ? 'limegreen' : item.Status=='Busy' ? 'Red':'grey'}">
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <br>
+                    <mat-card-title style="font-size: 14px;">{{item.firstName}}
+
+                    </mat-card-title>
+
+                </mat-card-header>
+            </div>
+
+        </mat-card>
+    </div>
+
+    <div class="column2 fullheight">
+        <mat-card class="example-card" *ngIf="BlankChat">
+            <mat-card-header>
+                <img src="../../../assets/images/chatbackgroundimage.png" style="padding: 10% 20%;">
+            </mat-card-header>
+        </mat-card>
+        <div>
+            <kkd-chat-history class="UserChat" *ngIf="UserChat" [userUniqueKey]="userUniqueKey"
+                [viewAllMsgs]="viewAllMsgs" [other]="other" [userRole]="userRole" [id]="dialogResponseBody._id">
+            </kkd-chat-history>
+        </div>
+
+    </div>

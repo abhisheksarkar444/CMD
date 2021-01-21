@@ -1,0 +1,9 @@
+.communication button {
+  font-size: 25px;
+  color: #0492ff;
+}
+
+.separator {
+  border-right: 1px solid lightgrey;
+  margin: 8px 0 8px 0;
+}

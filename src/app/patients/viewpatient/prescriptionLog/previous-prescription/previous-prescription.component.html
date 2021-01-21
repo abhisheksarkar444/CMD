@@ -1,0 +1,35 @@
+<div class="container">
+  <table class="table table-borderless table-hover">
+    <caption>Appointment History</caption>
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Reason</th>
+        <th scope="col">Doctor</th>
+        <th scope="col">DateOfAptmt</th>
+        <th scope="col">Prescription</th>
+        <th scope="col">Feedback</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let appointment of appointments; let i=index;">
+        <th scope="row">{{i+1}}</th>
+        <td><span
+            *ngIf="appointment.reasons?.length != 0 && appointment.reasons[0].description!=null ; else unavailable;">{{appointment.reasons[0].description
+            | uppercase}}</span></td>
+        <td><span
+            *ngIf="appointment.providerFirstName!=null; else unavailable;">{{appointment.providerFirstName}}&nbsp;{{appointment.providerLastName}}</span>
+        </td>
+        <td><span *ngIf="appointment.startTime!=null; else unavailable;">{{appointment.startTime | date:"MMM
+            yyyy"}}</span></td>
+        <td><span
+            *ngIf="appointment.prescriptions?.length != 0 && appointment.prescriptions[0].title!=null; else unavailable;">{{appointment.prescriptions[0].category}}</span>
+        </td>
+        <td><span
+            *ngIf="appointment.feedBacks?.length !=0; else unavailable;">{{appointment.feedBacks[0].remarks}}</span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<ng-template #unavailable>--</ng-template>

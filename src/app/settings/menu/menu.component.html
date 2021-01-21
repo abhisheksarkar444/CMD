@@ -1,0 +1,7 @@
+<mat-card>
+  <div fxLayout="column">
+    <div fxFlex *ngFor="let option of menuOptions" class="option" [routerLink]="option.link">
+      {{ option.text }}
+    </div>
+  </div>
+</mat-card>

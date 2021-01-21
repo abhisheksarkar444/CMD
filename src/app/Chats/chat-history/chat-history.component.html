@@ -1,0 +1,115 @@
+<div class="row fullheight">
+    <div class="column2 fullheight">
+        <mat-card class="example-card fullheight">
+            <mat-card-header>
+                <div>
+                    <mat-icon class="file" (click)="showPrescription()" *ngIf="userRole !== 'Patient'">insert_drive_file
+                    </mat-icon>
+                </div>
+                <div class="disableClass">
+                    <a>
+                        <mat-icon class="calendar" [ngClass]="{'disable': true}">calendar_today
+                        </mat-icon>
+                    </a>
+
+                </div>
+                <div class="disableClass">
+                    <a>
+                        <mat-icon class="phone" [ngClass]="{'disable': true}">phone</mat-icon>
+                    </a>
+                </div>
+                <div class="disableClass">
+                    <a>
+                        <mat-icon disabled class="videocall" [ngClass]="{'disable': true}">video_call</mat-icon>
+                    </a>
+                </div>
+
+                <mat-icon class="ellipsis">more_vert</mat-icon>
+
+                <div mat-card-avatar class="example-header-image"
+                    [ngStyle]="{'background-image':'url(' + other.profilePhoto_Path + ')'}"><span class="dot"></span>
+                </div>
+
+                <mat-card-title style="font-size: 18px;">{{other.firstName}}</mat-card-title>
+
+            </mat-card-header>
+            <mat-divider></mat-divider>
+            <mat-card-header style="height: 75%;"></mat-card-header>
+            <mat-card-content *ngIf="viewAllMsgs">
+
+                <ol class="chat" #scrollMe [scrollTop]="scrollMe.scrollHeight">
+                    <li [ngClass]="{'self': element.sender_id != other.userID , 'other': element.sender_id == other.userID }"
+                        *ngFor="let element of viewAllMsgs.items">
+                        <div *ngIf="element.attachments.length == 1">
+                            <a href={{element.message}} target="_blank" download>
+                                <img src={{element.message}}>
+                            </a>
+                        </div>
+                        <div class="msg" *ngIf="element.attachments.length == 0">
+                            <p>{{element.message }}</p>
+                        </div>
+
+                    </li>
+
+                </ol>
+
+            </mat-card-content>
+
+            <mat-card-footer style="padding: 15px; width:50%">
+                <div class="type_msg">
+                    <div class="input_msg_write">
+                        <form>
+                            <button class="btn btn-outline-secondary msg_attachment_btn" type="button"
+                                id="button-addon2" (click)="fileInput.click()">
+                                <mat-icon> attach_file</mat-icon>
+                                <!-- <span>Select</span> -->
+                                <input #fileInput #Image type='file' (change)="onSelectFile($event.target.files)"
+                                    style="display: none" accept="image/*">
+                            </button>
+
+
+                            <input type="text" class="write_msg" placeholder="Type a message" #msg
+                                style="padding: 0px 50px;" (keydown.enter)="sendMessage(msg.value);msg.value='';" />
+                            <button class="btn btn-outline-secondary msg_send_btn" type="button" id="button-addon1"
+                                (click)="sendMessage(msg.value);msg.value='';">
+                                <mat-icon>send</mat-icon>
+                            </button>
+                        </form>
+
+                    </div>
+                </div>
+            </mat-card-footer>
+        </mat-card>
+
+    </div>
+    <div class="column1 fullheight">
+        <mat-card class="example-card fullheight">
+            <mat-card-title style="text-align: center;"><i>History</i></mat-card-title>
+            <button mat-stroked-button color="primary" class="MeetsButton" (click)="showVitals()"
+                style="border-radius: 15px;">Vitals</button>
+
+            <mat-card class="example-card" style="padding-top: 0px;">
+                <mat-calendar class="" [selected]="selectedDate" (selectedChange)="onSelect($event)">
+                </mat-calendar>
+            </mat-card>
+
+            <div *ngIf="button">
+
+                <button mat-stroked-button color="primary" class="PendingAndCompleted"
+                    (click)=PendingStatus()>Pending</button>
+                <button mat-flat-button color="primary" class="PendingAndCompleted"
+                    (click)=completedStatus()>Completed</button>
+            </div>
+            <div *ngIf="!button">
+                <button mat-flat-button color="primary" class="PendingAndCompleted"
+                    (click)=PendingStatus()>Pending</button>
+                <button mat-stroked-button color="primary" class="PendingAndCompleted"
+                    (click)=completedStatus()>Completed</button>
+
+            </div>
+            <kkd-newappointment-schedule [otherId]="otherId" [userUniqueKey]="userUniqueKey" [status]="status"
+                [userRole]="userRole" [userUniqueKey]="userUniqueKey"></kkd-newappointment-schedule>
+
+        </mat-card>
+    </div>
+</div>

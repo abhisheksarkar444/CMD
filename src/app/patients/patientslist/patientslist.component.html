@@ -1,0 +1,66 @@
+<!-- Loading Symbol using progress bar  -->
+<mat-progress-bar style="margin-top: -20px;
+width: 1300px;
+margin-left: -18px;" *ngIf="fetchingQuotes" mode="indeterminate"></mat-progress-bar>
+
+<!-- End-->
+
+<div style="margin-left: 20px; display :flex;">
+    <mat-card class="outercard" style="size: relative">
+        <p style="font-size:20px;
+        font-family: sans-serif;font-weight: normal;color:dimgrey">Patients</p><br>
+
+        <!--Search Button -->
+        <div class="input-group input-group-md ">
+
+            <input class="form-control " [(ngModel)]="searchText" style="border-radius: 20px" type="text" name="search"
+                autocomplete="off" placeholder="&#61442;  Search Name...">
+
+        </div>
+
+        <!---New Patient grid List-->
+        <!--Material Card inner -->
+
+        <div style="display: grid;grid-template-columns: auto auto auto ;" class="card-block clearfix">
+            <div
+                *ngFor="let patient of collection | filterlist: searchText | paginate: { itemsPerPage: 6, currentPage: p }">
+
+                <a routerLink="/viewpatient/{{patient.patientID}}">
+
+                    <mat-card class="example-card">
+                        <div>
+
+                            <mat-icon disabled>edit</mat-icon>
+                            <img align="left" style="background-color: #eaeaea;
+            border-radius: 50%;width: 80px;height:80px;" src="{{patient.profilePhoto_Path}}" alt="Patient image">
+
+                        </div>
+                        <div style="margin-top: -20px;">
+                            <!-- <label style="width: 5%;">{{i +1}}</label> -->
+                            <label class="NameCssforPatient">{{patient.firstName + " " + patient.lastName}}</label><br>
+
+                            <label style="margin-left: 20px;font-family: serif;color: lightslategray"><b>Contact:
+                                </b>{{patient.userID}}</label><br>
+                            <label style="margin-left: 20px;font-family: serif;color: lightslategray"><b>Email: </b>
+                                {{patient.email}}</label>
+                        </div><br>
+                        <!--Images at the bottom -->
+                        <mat-divider style="color:whitesmoke"></mat-divider>
+                        <img style="margin-left:0px; width: 20px; height: auto; margin-top: 10px;"
+                            src="assets/images/Path 408.jpg">
+                        <img style="margin-left:45%; width: 10px; height: auto;margin-top: 10px"
+                            src="assets/images/Hand.jpg">
+                        <img align="right" style="width: 20px; height: auto; margin-top: 10px"
+                            src="assets/images/Group 270.jpg">
+                        <!--End of Images at the bottom -->
+                    </mat-card>
+                </a>
+            </div>
+        </div>
+
+        <br>
+        <!--End of Material Card inner -->
+        <pagination-controls align="right" previousLabel="" nextLabel="" (pageChange)="p = $event">
+        </pagination-controls>
+    </mat-card>
+</div>

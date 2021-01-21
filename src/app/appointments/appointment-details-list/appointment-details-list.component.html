@@ -1,0 +1,141 @@
+<div class="container">
+  <div class="row">
+    <div class="heading">Todays Calendar</div>
+    <div class="calender-view-selections">
+      <div class="list-view" routerLink="/appointmentlist"></div>
+      <div class="grid-view" routerLink="/appointmentgridview"></div>
+    </div>
+  </div>
+
+  <div class="row header-container">
+    <div [ngClass]="{'sub-heading':one, 'sub-heading-nonactve':!one}"
+      (click)="GetAppointmetsByTodayDate();attributeDisabled=true;one=true;two=false;three=false;">
+      <div [ngClass]="{'number':one, 'number-nonactve':!one}">
+        {{NumberOfAppointments}}
+      </div>
+      <div [ngClass]="{'header':one,'header-nonactve':!one}">
+        All
+      </div>
+    </div>
+    <div [ngClass]="{'sub-heading':two,'sub-heading-nonactve':!two}"
+      (click)="GetAllApprovedAppointments();attributeDisabled=false;one=false;two=true;three=false;">
+      <div [ngClass]="{'number':two, 'number-nonactve':!two}">
+        {{NumberOfApprovedAppt}}
+      </div>
+      <div [ngClass]="{'header':two,'header-nonactve':!two}">
+        Approved
+      </div>
+    </div>
+    <div [ngClass]="{'sub-heading':three,'sub-heading-nonactve':!three}"
+      (click)="GetAllRejectedAppointments();attributeDisabled=false;one=false;two=false;three=true;">
+      <div [ngClass]="{'number':three, 'number-nonactve':!three}">
+        {{NumberOfRejectedAppt}}
+      </div>
+      <div [ngClass]="{'header':three,'header-nonactve':!three}">
+        Rejected
+      </div>
+    </div>
+
+
+    <!-- table-head -->
+    <div *ngIf="appointments.length==0">
+      <div class="resultNull" style="background-color:white; border-radius:15px;padding-right: 460px;margin-left: 1px;
+        position: relative;
+        top: 10px;;
+        padding-left: 445px;">
+        <h3 style="text-align: unset"> {{currentStatus}}</h3>
+      </div>
+    </div>
+    <div *ngIf="appointments.length>0">
+
+      <div class="container" style="background-color:white; border-radius:15px;">
+        <div class="row" style="height:80px;">
+          <div class="col-sm-12">
+            <div class="col-sm-3 co" style="display:inline-block;">
+              <div class="table-head"> Patient </div>
+            </div>
+            <div class="col-sm-2 co" style="display:inline-block;" *ngIf="attributeDisabled">
+              <div class="table-head">Action</div>
+            </div>
+            <div class="col-sm-2 co" style="display:inline-block;">
+              <div class="table-head">Status</div>
+            </div>
+            <div class="col-sm-1 co" style="display:inline-block;">
+              <div class="table-head">Time </div>
+            </div>
+            <div class="col-sm-4 co" style="display:inline-block;">
+              <div class="table-head" style="text-align: left; margin-left: 30%;"> Reason </div>
+            </div>
+          </div>
+        </div>
+        <!-- table-head end -->
+
+        <!-- body -->
+
+        <div class="appointment-details" *ngFor="let appointment of appointments; let i=index;">
+          <div class="col-sm-12 col-xs-12 appointment-details-pos align-items-center">
+            <div class="col-sm-3 col-xs-3 " style="display:inline-block;">
+              <div class="row">
+                <div class="col-sm-2 col-xs-2">
+                  <div class="SlNo"> {{i+1}} </div>
+                </div>
+                <div class="col-sm-2 col-xs-2">
+                  <div class="profile">
+                    <img class="display-picture" [src]="appointment.patientImage">
+                  </div>
+                </div>
+                <div class="col-sm-6 col-xs-6">
+                  <div class="name">{{appointment.memberFirstName}} {{appointment.memberLasttName}}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-2 col-xs-2" style="display:inline-block;" *ngIf="attributeDisabled">
+              <div class="actions">
+                <div [ngClass]="{'disabled': appointment.appointment_Status !== 'Requested'}">
+                  <input class="tick" type="image"
+                    (click)="respondAppointment(appointment.appointmentID,1,appointment.patientUniqueKey);"
+                    src="assets/image/tickmark.jpg" />
+                  <input class="wrong" type="image"
+                    (click)="respondAppointment(appointment.appointmentID,2,appointment.patientUniqueKey);"
+                    src="assets/image/wrong.png" />
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-2 col-xs-2" style="display:inline-block; width:1500px">
+              <div class="Status">
+                {{appointment.appointment_Status}}
+              </div>
+            </div>
+            <div class="col-sm-1 col-xs-1" style="display:inline-block;">
+              <div class="Time">
+                <p>{{appointment.startTime | date:'shortTime'}}</p>
+              </div>
+            </div>
+            <div class="col-sm-4 col-xs-4" style="display:inline-block;text-align:center;">
+              <div class="Reason">
+                <div class="row" style="padding-left: 22px">
+                  <p>{{appointment.reasons[0].description}}
+                    <span *ngIf="appointment.reasons.length!==1">
+                      <span class="Reason-tooltip">...
+                        <span class="Reason-tooltipText">
+                          <p *ngFor="let reason of appointment.reasons; let j=index;">
+                            <span *ngIf="j!==0">
+                              {{reason.description}}
+                            </span>
+                          </p>
+                        </span>
+                      </span>
+                    </span>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- body-end -->
+          <br>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

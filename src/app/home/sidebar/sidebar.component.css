@@ -1,0 +1,48 @@
+.sidebar {
+  background-color: #18385c;
+  padding-top: 10px;
+  height: 100%;
+  transition: width 0.3s ease-in;
+  width: 75px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.sidebar:hover {
+  width: 230px;
+}
+
+.mic-container {
+  padding-bottom: 30px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.icon {
+  font-size: 2em;
+  color: white;
+}
+
+.text {
+  color: white;
+}
+
+.sort {
+  transform: rotateY(180deg);
+}
+
+.menu-item-container {
+  padding-left: 25px;
+}
+
+.app-name-container {
+  padding: 5px 10px 15px 25px;
+}
+
+.app-name {
+  white-space: nowrap;
+}
+
+.nowrap {
+  white-space: nowrap;
+}
